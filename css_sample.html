@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <style>
+        .sample {
+            display: flex;
+            gap: 40px;
+        }
+
+        .image-wrapper {
+            width: 400px;
+            height: 300px;
+        }
+
+        .sample__mask .image-wrapper img {
+            mask-image: url("./images/star.svg");
+            mask-repeat: no-repeat;
+            mask-position: 0 0;
+            mask-size: 50%;
+            -webkit-mask-image: url("./images/star.svg");
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-position: 0 0;
+            -webkit-mask-size: 50%;
+        }
+
+        .sample__clip .image-wrapper img {
+            transition: clip-path 0.5s;
+            clip-path: inset(50px round 20px);
+        }
+
+        .sample__text .image-wrapper {
+            display: grid;
+            place-items: center;
+            background-color: #333;
+            background-image: url(https://picsum.photos/id/200/400/300);
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+
+        .sample__text .image-wrapper h3 {
+            font-size: 120px;
+            color: transparent;
+            margin: 0;
+        }
+
+        .input-wrapper_text input[type="text"] {
+            padding: 8px 8px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+<!--mask-imageのサンプル-->
+<div class="sample sample__mask">
+    <div class="image-wrapper">
+        <img src="https://picsum.photos/id/200/400/300" alt="">
+    </div>
+    <div class="input-wrapper input-wrapper__mask">
+        <h2>mask-imageのサンプル</h2>
+        <p class="mask-position">mask-position: </p>
+        <label for="x">x</label>
+        <input id="x" type="range" min="0" max="100">
+        <label for="y">y</label>
+        <input id="y" type="range" min="0" max="100">
+        <p class="mask-size">mask-size: </p>
+        <label for="scale">size</label>
+        <input id="scale" type="range" min="0" max="100">
+    </div>
+</div>
+
+<!--clip-pathのサンプル-->
+<div class="sample sample__clip">
+    <div class="image-wrapper">
+        <img src="https://picsum.photos/id/200/400/300" alt="">
+    </div>
+    <div class="input-wrapper input-wrapper__clip">
+        <h2>clip-pathのサンプル</h2>
+        <p>
+            <label for="clipPath">パスの形状:</label>
+
+            <select name="path" id="clipPath">
+                <option value="inset">inset</option>
+                <option value="circle">circle</option>
+                <option value="ellipse">ellipse</option>
+                <option value="polygon">polygon</option>
+                <option value="path">path</option>
+                <option value="svg">画像</option>
+            </select>
+        </p>
+        <p class="input-wrapper_text">
+            <label for="clipText">clip-path: </label>
+            <input id="clipText" type="text">
+        </p>
+    </div>
+</div>
+
+<!--  クリップ用SVG  -->
+<svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="0"
+        height="0"
+>
+    <defs>
+        <clipPath id="star">
+            <path
+                    d="M109.984,13.838a10,10,0,0,1,17.033,0l30.8,50.04a10,10,0,0,0,6.175,4.481l57.165,13.767a10,10,0,0,1,5.264,16.215L188.293,143a10,10,0,0,0-2.364,7.268l4.548,58.514A10,10,0,0,1,176.7,218.8l-54.385-22.416a10,10,0,0,0-7.622,0L60.3,218.8a10,10,0,0,1-13.781-10.02l4.548-58.514A10,10,0,0,0,48.707,143L10.584,98.34a10,10,0,0,1,5.264-16.215L73.013,68.359a10,10,0,0,0,6.175-4.481Z"
+            />
+        </clipPath>
+    </defs>
+</svg>
+
+<!--background-clip: textのサンプル-->
+<div class="sample sample__text">
+    <div class="image-wrapper">
+        <!--        <img src="https://picsum.photos/id/200/400/300" alt="">-->
+        <h3>CLIP</h3>
+    </div>
+    <div class="input-wrapper input-wrapper__clip">
+        <h2>background-clip: textのサンプル</h2>
+        <p class="input-wrapper_text">
+            <label for="bgClipTextX">background-position-x: </label>
+            <input id="bgClipTextX" type="range" min="0" max="200" value="0" />
+        </p>
+        <p>
+            <label for="bgClipTextY">background-position-y: </label>
+            <input id="bgClipTextY" type="range" min="0" max="200" value="0" />
+        </p>
+    </div>
+</div>
+
+<script>
+  // マスクのサンプル
+  const image = document.querySelector(".sample__mask img")
+  const xSlider = document.getElementById("x")
+  const ySlider = document.getElementById("y")
+  const scaleSlider = document.getElementById("scale")
+  let xValue = 50
+  let yValue = 50
+  let scaleValue = 50
+  const maskPositionText = document.querySelector(".mask-position")
+  const maskSizeText = document.querySelector(".mask-size")
+  // mask-positionの設定
+  const setMaskPosition = () => {
+    const prop = `${xValue}% ${yValue}%`
+    image.style.maskPosition = prop
+    image.style.webkitMaskPosition = prop
+    maskPositionText.innerText = "mask-position: " + prop
+  }
+  const setMaskSize = () => {
+    const prop = `${scaleValue}%`
+    image.style.maskSize = prop
+    image.style.webkitMaskSize = prop
+    maskSizeText.innerText = "mask-size: " + prop
+  }
+  xSlider.addEventListener("input", () => {
+    xValue = xSlider.value
+    setMaskPosition()
+  })
+  ySlider.addEventListener("input", () => {
+    yValue = ySlider.value
+    setMaskPosition()
+  })
+  scaleSlider.addEventListener("input", () => {
+    scaleValue = scaleSlider.value
+    setMaskSize()
+  })
+
+  // clip-pathのサンプル
+  const clipSelector = document.getElementById("clipPath")
+  const clipImage = document.querySelector(".sample__clip img")
+  const clipText = document.getElementById("clipText")
+
+  const setClipPath = (value) => {
+    clipImage.style.clipPath = value
+    clipText.value = value
+  }
+
+  const selectClipPath = () => {
+    const value = clipSelector.value
+    switch (value) {
+      case "inset":
+        const insetProp = "inset(50px round 20px)"
+        setClipPath(insetProp)
+        break;
+      case "circle":
+        const circleProp = "circle(100px at center)"
+        setClipPath(circleProp)
+        break
+      case "ellipse":
+        const ellipseProp = "ellipse(50% 20% at center)"
+        setClipPath(ellipseProp)
+        break;
+      case "polygon":
+        const polygonProp = "polygon(5% 10%, 94% 10%, 48% 100%)"
+        setClipPath(polygonProp)
+        break
+      case "path":
+        const pathProp = 'path("M120,32.48 c-31.48,-54.02 -120,-38.25 -120,29.44 0,46.61 55.71,94.27 120,158.08 64.3,-63.81 120,-111.47 120,-158.08 0,-67.92 -88.75, -83.06 -120,-29.44z")'
+        setClipPath(pathProp)
+        break;
+      case "svg":
+        const svgProp = "url(#star)"
+        setClipPath(svgProp)
+        break
+      default:
+        console.log("存在しないプロパティ")
+        break
+    }
+  }
+
+  clipSelector.addEventListener("change", () => {
+    selectClipPath()
+  })
+  clipText.addEventListener("input", () => {
+    setClipPath(clipText.value)
+  })
+
+  //  background-clip: text
+  const textClipSliderX = document.getElementById("bgClipTextX")
+  const textClipSliderY = document.getElementById("bgClipTextY")
+  const textClipImage = document.querySelector(".sample__text .image-wrapper")
+  textClipSliderX.addEventListener("input", () => {
+    textClipImage.style.backgroundPositionX = textClipSliderX.value + "px"
+  })
+  textClipSliderY.addEventListener("input", () => {
+    textClipImage.style.backgroundPositionY = textClipSliderY.value + "px"
+  })
+
+  // 全体のセットアップ
+  const setup = () => {
+    setMaskPosition()
+    setMaskSize()
+    selectClipPath()
+  }
+
+  setup()
+</script>
+</body>
+</html>
