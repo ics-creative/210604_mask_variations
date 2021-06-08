@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <style>
+        .sample {
+            display: flex;
+            gap: 40px;
+        }
+
+        .image-wrapper {
+            width: 400px;
+            height: 300px;
+        }
+
+        .input-wrapper {
+            width: 100%;
+        }
+
+        .sample__mask .image-wrapper img {
+            mask-image: url("./images/star.svg");
+            mask-repeat: no-repeat;
+            mask-position: 0 0;
+            mask-size: 50%;
+            -webkit-mask-image: url("./images/star.svg");
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-position: 0 0;
+            -webkit-mask-size: 50%;
+        }
+
+        .sample__clip .image-wrapper img {
+            transition: clip-path 0.5s;
+            clip-path: inset(50px round 20px);
+        }
+
+        .sample__text .image-wrapper {
+            display: grid;
+            place-items: center;
+            background-color: #333;
+            background-image: url(https://picsum.photos/id/200/400/300);
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+
+        .sample__text .image-wrapper h3 {
+            font-size: 120px;
+            color: transparent;
+            margin: 0;
+        }
+
+        .input-wrapper_text input[type="text"] {
+            padding: 8px 8px;
+            font-size: 20px;
+            width: calc(100% - 100px);
+        }
+    </style>
+</head>
+<body>
+
+<!--  クリップ用SVGの元画像  -->
+<h2>クリップ用SVG</h2>
+<svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="237"
+        height="225"
+>
+    <path
+            d="M109.984,13.838a10,10,0,0,1,17.033,0l30.8,50.04a10,10,0,0,0,6.175,4.481l57.165,13.767a10,10,0,0,1,5.264,16.215L188.293,143a10,10,0,0,0-2.364,7.268l4.548,58.514A10,10,0,0,1,176.7,218.8l-54.385-22.416a10,10,0,0,0-7.622,0L60.3,218.8a10,10,0,0,1-13.781-10.02l4.548-58.514A10,10,0,0,0,48.707,143L10.584,98.34a10,10,0,0,1,5.264-16.215L73.013,68.359a10,10,0,0,0,6.175-4.481Z"
+    />
+</svg>
+
+<!--  クリップ用SVG  -->
+    <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="150"
+            height="150"
+            viewBox="0 0 237 225"
+    >
+    <defs>
+        <clipPath id="star" clipPathUnits="objectBoundingBox">
+<!--        <clipPath id="star">-->
+<!--  path以外にも、textやimageに変更可能  -->
+            <path
+                    transform="scale(0.0042, 0.0044)"
+                    d="M109.984,13.838a10,10,0,0,1,17.033,0l30.8,50.04a10,10,0,0,0,6.175,4.481l57.165,13.767a10,10,0,0,1,5.264,16.215L188.293,143a10,10,0,0,0-2.364,7.268l4.548,58.514A10,10,0,0,1,176.7,218.8l-54.385-22.416a10,10,0,0,0-7.622,0L60.3,218.8a10,10,0,0,1-13.781-10.02l4.548-58.514A10,10,0,0,0,48.707,143L10.584,98.34a10,10,0,0,1,5.264-16.215L73.013,68.359a10,10,0,0,0,6.175-4.481Z"
+            />
+        </clipPath>
+    </defs>
+        <rect x="0" y="0" width="100%" height="100%" fill="#333333" clip-path="url(#star)"></rect>
+    </svg>
+
+<!--clip-pathのサンプル-->
+<div class="sample sample__clip">
+    <div class="image-wrapper">
+        <img src="https://picsum.photos/id/200/400/300" alt="">
+    </div>
+    <div class="input-wrapper input-wrapper__clip">
+        <h2>clipPathのサンプル</h2>
+        <svg width="200" height="200">
+            <rect width="200" height="200" fill="#333333" clip-path="url(#star)"></rect>
+        </svg>
+    </div>
+</div>
+
+<!--mask-imageのサンプル-->
+<div class="sample sample__mask">
+    <div class="image-wrapper">
+        <img src="https://picsum.photos/id/200/400/300" alt="">
+    </div>
+    <div class="input-wrapper input-wrapper__mask">
+        <h2>mask-imageのサンプル</h2>
+        <p class="mask-position">mask-position: </p>
+        <label for="x">x</label>
+        <input id="x" type="range" min="0" max="100">
+        <label for="y">y</label>
+        <input id="y" type="range" min="0" max="100">
+        <p class="mask-size">mask-size: </p>
+        <label for="scale">size</label>
+        <input id="scale" type="range" min="0" max="100">
+    </div>
+</div>
+
+
+
+<!--background-clip: textのサンプル-->
+<div class="sample sample__text">
+    <div class="image-wrapper">
+        <!--        <img src="https://picsum.photos/id/200/400/300" alt="">-->
+        <h3>CLIP</h3>
+    </div>
+    <div class="input-wrapper input-wrapper__clip">
+        <h2>background-clip: textのサンプル</h2>
+        <p class="input-wrapper_text">
+            <label class="bgClipLabelX" for="bgClipTextX">background-position-x: </label><br/>
+            <input id="bgClipTextX" type="range" min="0" max="200" value="0"/>
+        </p>
+        <p>
+            <label class="bgClipLabelY" for="bgClipTextY">background-position-y: </label><br/>
+            <input id="bgClipTextY" type="range" min="0" max="200" value="0"/>
+        </p>
+    </div>
+</div>
+
+
+</body>
+</html>

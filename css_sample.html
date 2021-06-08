@@ -44,7 +44,6 @@
             color: transparent;
             margin: 0;
         }
-
         .input-wrapper_text input[type="text"] {
             padding: 8px 8px;
             font-size: 20px;
@@ -93,6 +92,9 @@
             <label for="clipText">clip-path: </label>
             <input id="clipText" type="text">
         </p>
+        <p>
+            ※パラメーターを直接変更できます
+        </p>
     </div>
 </div>
 
@@ -120,11 +122,11 @@
     <div class="input-wrapper input-wrapper__clip">
         <h2>background-clip: textのサンプル</h2>
         <p class="input-wrapper_text">
-            <label for="bgClipTextX">background-position-x: </label>
+            <label class="bgClipLabelX" for="bgClipTextX">background-position-x: </label><br />
             <input id="bgClipTextX" type="range" min="0" max="200" value="0" />
         </p>
         <p>
-            <label for="bgClipTextY">background-position-y: </label>
+            <label class="bgClipLabelY" for="bgClipTextY">background-position-y: </label><br />
             <input id="bgClipTextY" type="range" min="0" max="200" value="0" />
         </p>
     </div>
@@ -220,12 +222,16 @@
   //  background-clip: text
   const textClipSliderX = document.getElementById("bgClipTextX")
   const textClipSliderY = document.getElementById("bgClipTextY")
+  const textX = document.querySelector(".bgClipLabelX")
+  const textY = document.querySelector(".bgClipLabelY")
   const textClipImage = document.querySelector(".sample__text .image-wrapper")
   textClipSliderX.addEventListener("input", () => {
     textClipImage.style.backgroundPositionX = textClipSliderX.value + "px"
+    textX.innerText = "background-position-x: " + textClipSliderX.value + "px"
   })
   textClipSliderY.addEventListener("input", () => {
     textClipImage.style.backgroundPositionY = textClipSliderY.value + "px"
+    textY.innerText = "background-position-y: " + textClipSliderY.value + "px"
   })
 
   // 全体のセットアップ
