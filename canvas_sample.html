@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <style>
+        #canvas {
+            width: 800px;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+<canvas width="800" height="600" id="canvas"></canvas>
+<script>
+  let ctx;
+  const img = new Image();
+
+  img.src = 'https://picsum.photos/800/600';
+
+  ctx = document.getElementById('canvas').getContext('2d');
+
+  const position = {x: 0, y: 0}
+
+  const drawCircle = () => {
+    ctx.beginPath();
+    ctx.arc(position.x, position.y, 100, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "#000000";
+    ctx.fill();
+  }
+
+  const draw = () => {
+    ctx.globalCompositeOperation = 'source-over';
+    ctx.drawImage(img, 0, 0);
+    ctx.globalCompositeOperation = "destination-in";
+    drawCircle()
+
+  }
+  const tick = () => {
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+    draw()
+    requestAnimationFrame(tick)
+  }
+
+  ctx.canvas.addEventListener("mousemove", (e) => {
+    position.x = e.clientX
+    position.y = e.clientY
+  })
+
+  img.onload = function () {
+    tick()
+  };
+</script>
+</body>
+</html>

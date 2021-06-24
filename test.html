@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img {
+            background-color: #000;
+            width: 960px;
+            height: 540px;
+
+            /*background-image: url("./images/stroke.png");*/
+            /*background-repeat: no-repeat;*/
+            /*background-position: 0 0;*/
+            mask-image: url("./images/spritesheet.png");
+            mask-repeat: no-repeat;
+            mask-position: 0 0;
+            -webkit-mask-image: url("./images/spritesheet.png");
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-position: 0 0;
+
+            animation: sprite-animation 2.5s steps(29) infinite;
+        }
+        @keyframes sprite-animation {
+            0% {
+                mask-position: 0 0;
+                -webkit-mask-position: 0 0;
+                /*background-position: 0 0;*/
+            }
+            100% {
+                mask-position: -27840px 0;
+                -webkit-mask-position: -27840px 0;
+                /*background-position: -27840px 0;*/
+            }
+        }
+        .video_wrapper {
+            position: relative;
+            width: 800px;
+            height: 500px;
+            overflow: hidden;
+        }
+        .video_wrapper video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .video_wrapper h2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            mix-blend-mode: screen;
+            /*background-image: linear-gradient(to right, cornflowerblue, limegreen, hotpink);*/
+            /*background: #fff;*/
+            background-size: 100% 100%;
+            font-size: 80px;
+            font-weight: bold;
+            /*background-clip: text;*/
+            /*-webkit-background-clip: text;*/
+            /*color: transparent;*/
+            animation: slide-bg 2s linear forwards;
+        }
+        @keyframes slide-bg {
+            0% {
+                background-position-x: 0;
+            }
+            100% {
+                background-position-x: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="./images/pexels-pixabay-355465.jpg" width="2000" height="1086" alt=""/><br />
+    <div class="video_wrapper">
+    <video src="./images/mov_hts-samp006.mp4" autoplay muted></video>
+        <h2>COLOR</h2>
+    </div>
+</body>
+</html>

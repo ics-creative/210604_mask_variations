@@ -250,7 +250,7 @@
 
 
 <!--clip-pathのサンプル-->
-<hr />
+<hr/>
 <div class="sample">
     <div class="image-wrapper">
         <svg class="svg_clipPath" viewBox="0 0 400 300">
@@ -277,7 +277,7 @@
         </select>
     </div>
 </div>
-<hr />
+<hr/>
 <!--clip-pathのサンプル-->
 <div class="sample">
     <div class="image-wrapper">
@@ -301,24 +301,33 @@
             <option value="mask_text">text</option>
             <option value="mask_polygon">polygon</option>
             <option value="mask_star">star</option>
-            <option value="mask_star_alpha">star_alpha</option>
+            <option value="mask_star_alpha" selected>star_alpha</option>
         </select>
         <p>※clip-pathと違い、star_alphaの透明度がマスクに反映される</p>
     </div>
 </div>
 
 <script>
-const clipPath = document.getElementById("clipPath")
-const clipPathSvg = document.querySelector(".svg_clipPath")
-clipPath.addEventListener("change", () => {
-  clipPathSvg.querySelector("rect").setAttribute("clip-path", `url(#${clipPath.value})`)
-})
+  const setClipPath = () => {
+    clipPathSvg.querySelector("rect").setAttribute("clip-path", `url(#${clipPath.value})`)
+  }
+  const setMask = () => {
+    maskSvg.querySelector("rect").setAttribute("mask", `url(#${maskSelect.value})`)
+  }
+  const clipPath = document.getElementById("clipPath")
+  const clipPathSvg = document.querySelector(".svg_clipPath")
+  clipPath.addEventListener("change", () => {
+    setClipPath()
+  })
 
-const maskSelect = document.getElementById("maskSelect")
-const maskSvg = document.querySelector(".svg_mask")
-maskSelect.addEventListener("change", () => {
-  maskSvg.querySelector("rect").setAttribute("mask", `url(#${maskSelect.value})`)
-})
+  const maskSelect = document.getElementById("maskSelect")
+  const maskSvg = document.querySelector(".svg_mask")
+  maskSelect.addEventListener("change", () => {
+    setMask()
+  })
+
+  setClipPath()
+  setMask()
 </script>
 </body>
 </html>
