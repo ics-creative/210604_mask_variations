@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <style>
+      body {
+        height: 3000px;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+      .imageWrapper {
+        /*width: 600px;*/
+        position: relative;
+
+      }
+      .imageWrapper img {
+        position: sticky;
+        top: 0;
+
+        /*-webkit-mask-image: url("./images/star2.svg");*/
+        /*mask-image: url("./images/star.png");*/
+        /*-webkit-mask-size: contain;*/
+        /*mask-size: contain;*/
+        /*-webkit-mask-position: center;*/
+        /*mask-position: center;*/
+        /*-webkit-mask-repeat: no-repeat;*/
+        /*mask-repeat: no-repeat;*/
+
+        /*clip-path: url(#hoge);*/
+      }
+      .star {
+        position: absolute;
+        /*position: sticky;*/
+        margin-top: 200px;
+        top: 0;
+        left: 0;
+      }
+      canvas {
+        /*position: fixed;*/
+        top: 20%;
+        position: absolute;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="imageWrapper">
+      <img
+        src="./images/pexels-pixabay-355465.jpg"
+        alt=""
+        width="2000"
+        height="1086"
+      />
+
+<!--  svgによるマスク  -->
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="237"
+      height="225"
+      viewBox="0 0 237 225"
+      class="star"
+    >
+      <defs>
+        <mask id="cross">
+          <rect width="100%" height="100%" fill="#ffffff"></rect>
+          <path
+            d="M109.984,13.838a10,10,0,0,1,17.033,0l30.8,50.04a10,10,0,0,0,6.175,4.481l57.165,13.767a10,10,0,0,1,5.264,16.215L188.293,143a10,10,0,0,0-2.364,7.268l4.548,58.514A10,10,0,0,1,176.7,218.8l-54.385-22.416a10,10,0,0,0-7.622,0L60.3,218.8a10,10,0,0,1-13.781-10.02l4.548-58.514A10,10,0,0,0,48.707,143L10.584,98.34a10,10,0,0,1,5.264-16.215L73.013,68.359a10,10,0,0,0,6.175-4.481Z"
+            fill="#000000"
+          />
+        </mask>
+      </defs>
+      <rect width="100%" height="100%" mask="url(#cross)" fill="#aaaaaa"></rect>
+    </svg>
+
+
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      width="237"
+      height="225"
+      viewBox="0 0 237 225"
+    >
+      <defs>
+        <radialGradient
+          id="a"
+          cx="0.5"
+          cy="0.5"
+          r="0.5"
+          gradientUnits="objectBoundingBox"
+        >
+          <stop offset="0" stop-color="#ffcc58" />
+          <stop offset="1" stop-color="#ffb000" stop-opacity="0" />
+        </radialGradient>
+        <clipPath id="hoge">
+
+        <path
+                  d="M109.984,13.838a10,10,0,0,1,17.033,0l30.8,50.04a10,10,0,0,0,6.175,4.481l57.165,13.767a10,10,0,0,1,5.264,16.215L188.293,143a10,10,0,0,0-2.364,7.268l4.548,58.514A10,10,0,0,1,176.7,218.8l-54.385-22.416a10,10,0,0,0-7.622,0L60.3,218.8a10,10,0,0,1-13.781-10.02l4.548-58.514A10,10,0,0,0,48.707,143L10.584,98.34a10,10,0,0,1,5.264-16.215L73.013,68.359a10,10,0,0,0,6.175-4.481Z"
+                  fill="url(#a)"
+          />
+        </clipPath>
+      </defs>
+
+    </svg>
+
+
+    <!--  canvasによるマスク  -->
+  <canvas id="canvas"></canvas>
+    </div>
+
+    <script>
+      const canvas = document.getElementById('canvas');
+      canvas.width = 960;
+      canvas.height = 540;
+
+      const context = canvas.getContext('2d');
+
+      const bgImg = new Image();
+      bgImg.onload = function () {
+        context.globalCompositeOperation = 'source-over';
+        context.drawImage(bgImg, 0, 0, canvas.width, canvas.height);
+        drawMask()
+      };
+      bgImg.src = './images/pexels-pixabay-355465.jpg';
+      const drawMask = () => {
+        context.globalCompositeOperation = 'destination-out';
+        // 星型の透過画像を描画
+        var maskImg = new Image();
+        maskImg.onload = function () {
+          context.drawImage(maskImg, canvas.width / 2 - (maskImg.width / 2), canvas.height / 2 - (maskImg.height / 2), maskImg.width, maskImg.height);
+        };
+        maskImg.src = './images/star.svg';
+      }
+    </script>
+  </body>
+</html>

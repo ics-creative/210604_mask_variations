@@ -225,13 +225,17 @@
   const textX = document.querySelector(".bgClipLabelX")
   const textY = document.querySelector(".bgClipLabelY")
   const textClipImage = document.querySelector(".sample__text .image-wrapper")
-  textClipSliderX.addEventListener("input", () => {
+  const setTextClip = () => {
     textClipImage.style.backgroundPositionX = textClipSliderX.value + "px"
     textX.innerText = "background-position-x: " + textClipSliderX.value + "px"
-  })
-  textClipSliderY.addEventListener("input", () => {
     textClipImage.style.backgroundPositionY = textClipSliderY.value + "px"
     textY.innerText = "background-position-y: " + textClipSliderY.value + "px"
+  }
+  textClipSliderX.addEventListener("input", () => {
+    setTextClip()
+  })
+  textClipSliderY.addEventListener("input", () => {
+    setTextClip()
   })
 
   // 全体のセットアップ
@@ -239,6 +243,7 @@
     setMaskPosition()
     setMaskSize()
     selectClipPath()
+    setTextClip()
   }
 
   setup()
