@@ -119,11 +119,14 @@
 
         /*スプライトイメージのアニメーション*/
         .sprite-animation_image {
-            /*TODO マスク画像とサイズ合わせる*/
-            mask-image: url("./images/spritesheet.png");
+            display: inline-block;
+            width: 480px;
+            height: 270px;
+            mask-image: url("./images/css_sprites.png");
             mask-repeat: no-repeat;
             mask-position: 0 0;
-            -webkit-mask-image: url("./images/spritesheet.png");
+            mask-size: cover;
+            -webkit-mask-image: url("./images/css_sprites.png");
             -webkit-mask-repeat: no-repeat;
             -webkit-mask-position: 0 0;
 
@@ -136,8 +139,8 @@
                 -webkit-mask-position: 0 0;
             }
             100% {
-                mask-position: -27840px 0;
-                -webkit-mask-position: -27840px 0;
+                mask-position: calc(-14400px + 480px) 0;
+                -webkit-mask-position: calc(-14400px + 480px) 0;
             }
         }
 
@@ -198,7 +201,7 @@
     <h2 class="section_title">2. スプライトアニメーションとマスクの組み合わせ</h2>
     <div>
         <div class="sprite-animation">
-            <img class="sprite-animation_image" src="https://picsum.photos/450/300" alt="" width="450" height="300">
+            <img class="sprite-animation_image" src="https://picsum.photos/960/540" alt="" width="480" height=270" />
         </div>
     </div>
 </section>
