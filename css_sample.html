@@ -65,7 +65,10 @@
         <input id="y" type="range" min="0" max="100">
         <p class="mask-size">mask-size: </p>
         <label for="scale">size</label>
-        <input id="scale" type="range" min="0" max="100">
+        <input id="scale" type="range" min="0" max="100"><br /><br />
+        <label>
+            <input id="repeat" type="checkbox">mask-repeat
+        </label>
     </div>
 </div>
 
@@ -138,9 +141,11 @@
   const xSlider = document.getElementById("x")
   const ySlider = document.getElementById("y")
   const scaleSlider = document.getElementById("scale")
+  const repeatCheckBox = document.getElementById("repeat")
   let xValue = 50
   let yValue = 50
   let scaleValue = 50
+  let repeat = false
   const maskPositionText = document.querySelector(".mask-position")
   const maskSizeText = document.querySelector(".mask-size")
   // mask-positionの設定
@@ -156,6 +161,10 @@
     image.style.webkitMaskSize = prop
     maskSizeText.innerText = "mask-size: " + prop
   }
+  const setRepeat = () => {
+    image.style.maskRepeat = repeat ? "repeat" : "no-repeat"
+    image.style.webkitMaskRepeat = repeat ? "repeat" : "no-repeat"
+  }
   xSlider.addEventListener("input", () => {
     xValue = xSlider.value
     setMaskPosition()
@@ -167,6 +176,10 @@
   scaleSlider.addEventListener("input", () => {
     scaleValue = scaleSlider.value
     setMaskSize()
+  })
+  repeatCheckBox.addEventListener("input", () => {
+    repeat = repeatCheckBox.checked
+    setRepeat()
   })
 
   // clip-pathのサンプル
@@ -244,6 +257,7 @@
     setMaskSize()
     selectClipPath()
     setTextClip()
+    setRepeat()
   }
 
   setup()

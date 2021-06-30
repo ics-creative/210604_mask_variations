@@ -148,17 +148,16 @@
         .parallax-cover {
             position: relative;
         }
-
-        /*sticky調整用*/
-        .parallax-cover:after {
+        .parallax-cover::after {
             content: "";
             display: block;
-            height: 400px;
+            width: 100%;
+            height: 200px;
         }
 
         .parallax-cover_image {
             position: absolute;
-            top: 200px;
+            top: 0;
             left: 0;
             width: 100%;
             height: auto;
@@ -166,10 +165,10 @@
 
         .parallax-cover_clip {
             position: sticky;
-            top: 100px;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 100%;
-            /*margin-top: -200px;*/
+            height: calc(100% + 200px);
         }
     </style>
 </head>
@@ -206,28 +205,25 @@
     </div>
 </section>
 <section class="section">
-    <h2 class="section_title">3. clip-pathによる切り抜き </h2>
-</section>
-<section class="section">
-    <h2 class="section_title">4. 背景に依存しない切り抜き</h2>
+    <h2 class="section_title">3. 背景に依存しない切り抜き</h2>
     <div class="parallax-cover">
         <img class="parallax-cover_image" src="https://picsum.photos/id/238/1920/1080" alt="" width="1920"
              height="1080">
         <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="1920"
-                height="1280"
+                height="1080"
                 class="parallax-cover_clip"
         >
             <defs>
                 <mask id="cross">
-                    <rect width="100%" height="100%" fill="#ffffff"></rect>
-                    <rect x="0" y="0" width="50%" height="20%" fill="#000000"></rect>
-                    <rect x="40%" y="30%" width="60%" height="20%" fill="#000000"></rect>
-                    <rect x="0" y="65%" width="30%" height="30%" fill="#000000"></rect>
+                    <rect width="100%" height="200%" fill="#ffffff"></rect>
+                    <rect x="0" y="5%" width="50%" height="20%" fill="#000000"></rect>
+                    <circle cx="80%" cy="45%" r="10%" fill="#000000"></circle>
+                    <rect x="10%" y="65%" width="60%" height="20%" fill="#000000"></rect>
                 </mask>
             </defs>
-            <rect width="100%" height="100%" mask="url(#cross)" fill="#ffffff"></rect>
+            <rect width="100%" height="200%" mask="url(#cross)" fill="#ffffff"></rect>
         </svg>
     </div>
 </section>
