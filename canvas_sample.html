@@ -2,7 +2,7 @@
 <html lang="">
 <head>
     <meta charset="UTF-8"/>
-    <title>Title</title>
+    <title>Canvasのマスク</title>
     <style>
         #canvas {
             width: 800px;
@@ -14,12 +14,9 @@
 <h2>↓マウスをホバーしてください</h2>
 <canvas width="800" height="600" id="canvas"></canvas>
 <script>
-  let ctx;
+  const ctx = document.getElementById("canvas").getContext("2d");
   const img = new Image();
-
-  img.src = 'https://picsum.photos/800/600';
-
-  ctx = document.getElementById('canvas').getContext('2d');
+  img.src = "https://picsum.photos/800/600";
 
   const position = {x: 0, y: 0}
 
@@ -31,7 +28,7 @@
   }
 
   const draw = () => {
-    ctx.globalCompositeOperation = 'source-over';
+    ctx.globalCompositeOperation = "source-over";
     ctx.drawImage(img, 0, 0);
     ctx.globalCompositeOperation = "destination-in";
     drawCircle()
@@ -44,8 +41,9 @@
   }
 
   ctx.canvas.addEventListener("mousemove", (e) => {
-    position.x = e.clientX
-    position.y = e.clientY
+    const rect = e.target.getBoundingClientRect()
+    position.x = e.clientX - rect.left
+    position.y = e.clientY - rect.top
   })
 
   img.onload = function () {
