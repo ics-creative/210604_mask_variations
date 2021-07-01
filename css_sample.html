@@ -138,130 +138,132 @@
 
 <script>
   // マスクのサンプル
-  const image = document.querySelector(".sample__mask img")
-  const xSlider = document.getElementById("x")
-  const ySlider = document.getElementById("y")
-  const scaleSlider = document.getElementById("scale")
-  const repeatCheckBox = document.getElementById("repeat")
-  let xValue = 50
-  let yValue = 50
-  let scaleValue = 50
-  let repeat = false
-  const maskPositionText = document.querySelector(".mask-position")
-  const maskSizeText = document.querySelector(".mask-size")
+  const image = document.querySelector(".sample__mask img");
+  const xSlider = document.getElementById("x");
+  const ySlider = document.getElementById("y");
+  const scaleSlider = document.getElementById("scale");
+  const repeatCheckBox = document.getElementById("repeat");
+  let xValue = 50;
+  let yValue = 50;
+  let scaleValue = 50;
+  let repeat = false;
+  const maskPositionText = document.querySelector(".mask-position");
+  const maskSizeText = document.querySelector(".mask-size");
   // mask-positionの設定
   const setMaskPosition = () => {
-    const prop = `${xValue}% ${yValue}%`
-    image.style.maskPosition = prop
-    image.style.webkitMaskPosition = prop
-    maskPositionText.innerText = "mask-position: " + prop
-  }
+    const prop = `${xValue}% ${yValue}%`;
+    image.style.maskPosition = prop;
+    image.style.webkitMaskPosition = prop;
+    maskPositionText.innerText = "mask-position: " + prop;
+  };
   const setMaskSize = () => {
-    const prop = `${scaleValue}%`
-    image.style.maskSize = prop
-    image.style.webkitMaskSize = prop
-    maskSizeText.innerText = "mask-size: " + prop
-  }
+    const prop = `${scaleValue}%`;
+    image.style.maskSize = prop;
+    image.style.webkitMaskSize = prop;
+    maskSizeText.innerText = "mask-size: " + prop;
+  };
   const setRepeat = () => {
-    image.style.maskRepeat = repeat ? "repeat" : "no-repeat"
-    image.style.webkitMaskRepeat = repeat ? "repeat" : "no-repeat"
-  }
+    image.style.maskRepeat = repeat ? "repeat" : "no-repeat";
+    image.style.webkitMaskRepeat = repeat ? "repeat" : "no-repeat";
+  };
   xSlider.addEventListener("input", () => {
-    xValue = xSlider.value
-    setMaskPosition()
-  })
+    xValue = xSlider.value;
+    setMaskPosition();
+  });
   ySlider.addEventListener("input", () => {
-    yValue = ySlider.value
-    setMaskPosition()
-  })
+    yValue = ySlider.value;
+    setMaskPosition();
+  });
   scaleSlider.addEventListener("input", () => {
-    scaleValue = scaleSlider.value
-    setMaskSize()
-  })
+    scaleValue = scaleSlider.value;
+    setMaskSize();
+  });
   repeatCheckBox.addEventListener("input", () => {
-    repeat = repeatCheckBox.checked
-    setRepeat()
-  })
+    repeat = repeatCheckBox.checked;
+    setRepeat();
+  });
 
   // clip-pathのサンプル
-  const clipSelector = document.getElementById("clipPath")
-  const clipImage = document.querySelector(".sample__clip img")
-  const clipText = document.getElementById("clipText")
+  const clipSelector = document.getElementById("clipPath");
+  const clipImage = document.querySelector(".sample__clip img");
+  const clipText = document.getElementById("clipText");
 
   const setClipPath = (value) => {
-    clipImage.style.clipPath = value
-    clipText.value = value
-  }
+    clipImage.style.clipPath = value;
+    clipText.value = value;
+  };
 
   const selectClipPath = () => {
-    const value = clipSelector.value
+    const value = clipSelector.value;
     switch (value) {
       case "inset":
-        const insetProp = "inset(50px round 20px)"
-        setClipPath(insetProp)
+        const insetProp = "inset(50px round 20px)";
+        setClipPath(insetProp);
         break;
       case "circle":
-        const circleProp = "circle(100px at center)"
-        setClipPath(circleProp)
-        break
+        const circleProp = "circle(100px at center)";
+        setClipPath(circleProp);
+        break;
       case "ellipse":
-        const ellipseProp = "ellipse(50% 20% at center)"
-        setClipPath(ellipseProp)
+        const ellipseProp = "ellipse(50% 20% at center)";
+        setClipPath(ellipseProp);
         break;
       case "polygon":
-        const polygonProp = "polygon(5% 10%, 94% 10%, 48% 100%)"
-        setClipPath(polygonProp)
-        break
+        const polygonProp = "polygon(5% 10%, 94% 10%, 48% 100%)";
+        setClipPath(polygonProp);
+        break;
       case "path":
-        const pathProp = 'path("M120,32.48 c-31.48,-54.02 -120,-38.25 -120,29.44 0,46.61 55.71,94.27 120,158.08 64.3,-63.81 120,-111.47 120,-158.08 0,-67.92 -88.75, -83.06 -120,-29.44z")'
-        setClipPath(pathProp)
+        const pathProp =
+          'path("M120,32.48 c-31.48,-54.02 -120,-38.25 -120,29.44 0,46.61 55.71,94.27 120,158.08 64.3,-63.81 120,-111.47 120,-158.08 0,-67.92 -88.75, -83.06 -120,-29.44z")';
+        setClipPath(pathProp);
         break;
       case "svg":
-        const svgProp = "url(#star)"
-        setClipPath(svgProp)
-        break
+        const svgProp = "url(#star)";
+        setClipPath(svgProp);
+        break;
       default:
-        console.log("存在しないプロパティ")
-        break
+        console.log("存在しないプロパティ");
+        break;
     }
-  }
+  };
 
   clipSelector.addEventListener("change", () => {
-    selectClipPath()
-  })
+    selectClipPath();
+  });
   clipText.addEventListener("input", () => {
-    setClipPath(clipText.value)
-  })
+    setClipPath(clipText.value);
+  });
 
   //  background-clip: text
-  const textClipSliderX = document.getElementById("bgClipTextX")
-  const textClipSliderY = document.getElementById("bgClipTextY")
-  const textX = document.querySelector(".bgClipLabelX")
-  const textY = document.querySelector(".bgClipLabelY")
-  const textClipImage = document.querySelector(".sample__text .image-wrapper")
+  const textClipSliderX = document.getElementById("bgClipTextX");
+  const textClipSliderY = document.getElementById("bgClipTextY");
+  const textX = document.querySelector(".bgClipLabelX");
+  const textY = document.querySelector(".bgClipLabelY");
+  const textClipImage = document.querySelector(".sample__text .image-wrapper");
   const setTextClip = () => {
-    textClipImage.style.backgroundPositionX = textClipSliderX.value + "px"
-    textX.innerText = "background-position-x: " + textClipSliderX.value + "px"
-    textClipImage.style.backgroundPositionY = textClipSliderY.value + "px"
-    textY.innerText = "background-position-y: " + textClipSliderY.value + "px"
-  }
+    textClipImage.style.backgroundPositionX = textClipSliderX.value + "px";
+    textX.innerText = "background-position-x: " + textClipSliderX.value + "px";
+    textClipImage.style.backgroundPositionY = textClipSliderY.value + "px";
+    textY.innerText = "background-position-y: " + textClipSliderY.value + "px";
+  };
   textClipSliderX.addEventListener("input", () => {
-    setTextClip()
-  })
+    setTextClip();
+  });
   textClipSliderY.addEventListener("input", () => {
-    setTextClip()
-  })
+    setTextClip();
+  });
 
   // 全体のセットアップ
   const setup = () => {
-    setMaskPosition()
-    setMaskSize()
-    selectClipPath()
-    setTextClip()
-    setRepeat()
-  }
+    setMaskPosition();
+    setMaskSize();
+    selectClipPath();
+    setTextClip();
+    setRepeat();
+  };
 
-  setup()
+  setup();
+
 </script>
 </body>
 </html>

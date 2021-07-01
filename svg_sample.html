@@ -309,25 +309,30 @@
 
 <script>
   const setClipPath = () => {
-    clipPathSvg.querySelector("rect").setAttribute("clip-path", `url(#${clipPath.value})`)
-  }
+    clipPathSvg
+      .querySelector("rect")
+      .setAttribute("clip-path", `url(#${clipPath.value})`);
+  };
   const setMask = () => {
-    maskSvg.querySelector("rect").setAttribute("mask", `url(#${maskSelect.value})`)
-  }
-  const clipPath = document.getElementById("clipPath")
-  const clipPathSvg = document.querySelector(".svg_clipPath")
+    maskSvg
+      .querySelector("rect")
+      .setAttribute("mask", `url(#${maskSelect.value})`);
+  };
+  const clipPath = document.getElementById("clipPath");
+  const clipPathSvg = document.querySelector(".svg_clipPath");
   clipPath.addEventListener("change", () => {
-    setClipPath()
-  })
+    setClipPath();
+  });
 
-  const maskSelect = document.getElementById("maskSelect")
-  const maskSvg = document.querySelector(".svg_mask")
+  const maskSelect = document.getElementById("maskSelect");
+  const maskSvg = document.querySelector(".svg_mask");
   maskSelect.addEventListener("change", () => {
-    setMask()
-  })
+    setMask();
+  });
 
-  setClipPath()
-  setMask()
+  setClipPath();
+  setMask();
+
 </script>
 </body>
 </html>

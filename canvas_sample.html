@@ -18,36 +18,35 @@
   const img = new Image();
   img.src = "https://picsum.photos/800/600";
 
-  const position = {x: 0, y: 0}
+  const position = { x: 0, y: 0 };
 
   const drawCircle = () => {
     ctx.beginPath();
     ctx.arc(position.x, position.y, 100, 0, 2 * Math.PI, false);
     ctx.fillStyle = "#000000";
     ctx.fill();
-  }
+  };
 
   const draw = () => {
     ctx.globalCompositeOperation = "source-over";
     ctx.drawImage(img, 0, 0);
     ctx.globalCompositeOperation = "destination-in";
-    drawCircle()
-
-  }
+    drawCircle();
+  };
   const tick = () => {
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-    draw()
-    requestAnimationFrame(tick)
-  }
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+    draw();
+    requestAnimationFrame(tick);
+  };
 
   ctx.canvas.addEventListener("mousemove", (e) => {
-    const rect = e.target.getBoundingClientRect()
-    position.x = e.clientX - rect.left
-    position.y = e.clientY - rect.top
-  })
+    const rect = e.target.getBoundingClientRect();
+    position.x = e.clientX - rect.left;
+    position.y = e.clientY - rect.top;
+  });
 
   img.onload = function () {
-    tick()
+    tick();
   };
 </script>
 </body>
