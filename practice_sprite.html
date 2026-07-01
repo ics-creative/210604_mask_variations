@@ -1,35 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>スプライトイメージ×マスク</title>
-    <link rel="stylesheet" type="text/css" href="./styles/reset.css">
-    <link rel="stylesheet" href="./styles/demo.css">
+    <link rel="stylesheet" type="text/css" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/demo.css" />
     <style>
-        .sprite-animation_image {
-            display: inline-block;
-            width: 480px;
-            height: 270px;
-            mask-image: url("./images/css_sprites.png");
-            mask-repeat: no-repeat;
-            mask-position: 0 0;
-            mask-size: cover;
-            animation: sprite-animation 2.5s steps(29) infinite;
-        }
+      .sprite-animation_image {
+        display: inline-block;
+        width: 480px;
+        height: 270px;
+        mask-image: url("./images/css_sprites.png");
+        mask-repeat: no-repeat;
+        mask-position: 0 0;
+        mask-size: cover;
+        animation: sprite-animation 2.5s steps(29) infinite;
+      }
 
-        @keyframes sprite-animation {
-            0% {
-                mask-position: 0 0;
-            }
-            100% {
-                mask-position: calc(-14400px + 480px) 0;
-            }
+      @keyframes sprite-animation {
+        0% {
+          mask-position: 0 0;
         }
+        100% {
+          mask-position: calc(-14400px + 480px) 0;
+        }
+      }
     </style>
-</head>
-<body class="demo-page">
-<div class="sprite-animation">
-    <img class="sprite-animation_image" src="https://picsum.photos/960/540" alt="スプライトアニメーションサンプル画像" width="480" height="270">
-</div>
-</body>
+  </head>
+  <body class="demo-page">
+    <div class="sprite-animation">
+      <img
+        class="sprite-animation_image"
+        src="https://picsum.photos/960/540"
+        alt="スプライトアニメーションサンプル画像"
+        width="480"
+        height="270"
+      />
+    </div>
+  </body>
 </html>

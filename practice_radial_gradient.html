@@ -1,42 +1,54 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>radial-gradientマスク</title>
-    <link rel="stylesheet" type="text/css" href="./styles/reset.css">
-    <link rel="stylesheet" href="./styles/demo.css">
+    <link rel="stylesheet" type="text/css" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/demo.css" />
     <style>
-        .mask-transition {
-            position: relative;
-            cursor: pointer;
-            display: inline-block;
-        }
+      .mask-transition {
+        position: relative;
+        cursor: pointer;
+        display: inline-block;
+      }
 
-        .mask-transition_bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            filter: grayscale(100%);
-        }
+      .mask-transition_bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        filter: grayscale(100%);
+      }
 
-        .mask-transition_image {
-            position: relative;
-            mask-image: radial-gradient(black 50%, transparent 100%);
-            mask-size: 0;
-            mask-position: center;
-            mask-repeat: no-repeat;
-            transition: 1s cubic-bezier(0.25, 1, 0.5, 1);
-        }
+      .mask-transition_image {
+        position: relative;
+        mask-image: radial-gradient(black 50%, transparent 100%);
+        mask-size: 0;
+        mask-position: center;
+        mask-repeat: no-repeat;
+        transition: 1s cubic-bezier(0.25, 1, 0.5, 1);
+      }
 
-        .mask-transition:hover .mask-transition_image {
-            mask-size: 100% 100%;
-        }
+      .mask-transition:hover .mask-transition_image {
+        mask-size: 100% 100%;
+      }
     </style>
-</head>
-<body class="demo-page">
-<div class="mask-transition">
-    <img class="mask-transition_bg" src="https://picsum.photos/id/1016/400/250" alt="マスク用サンプル画像白黒" width="400" height="250">
-    <img class="mask-transition_image" src="https://picsum.photos/id/1016/400/250" alt="マスク用サンプル画像" width="400" height="250">
-</div>
-</body>
+  </head>
+  <body class="demo-page">
+    <div class="mask-transition">
+      <img
+        class="mask-transition_bg"
+        src="https://picsum.photos/id/1016/400/250"
+        alt="マスク用サンプル画像白黒"
+        width="400"
+        height="250"
+      />
+      <img
+        class="mask-transition_image"
+        src="https://picsum.photos/id/1016/400/250"
+        alt="マスク用サンプル画像"
+        width="400"
+        height="250"
+      />
+    </div>
+  </body>
 </html>

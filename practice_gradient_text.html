@@ -1,41 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>グラデーションマスク</title>
-    <link rel="stylesheet" type="text/css" href="./styles/reset.css">
-    <link rel="stylesheet" href="./styles/demo.css">
+    <link rel="stylesheet" type="text/css" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/demo.css" />
     <style>
-        .gradient-text {
-            display: inline-block;
-            background-image: linear-gradient(to right, #d83819, #E2CC28, #57DB51);
-            position: relative;
-        }
+      .gradient-text {
+        display: inline-block;
+        background-image: linear-gradient(to right, #d83819, #e2cc28, #57db51);
+        position: relative;
+      }
 
-        .gradient-text:before {
-            content: "";
-            position: absolute;
-            top: 8px;
-            bottom: 8px;
-            left: 8px;
-            right: 8px;
-            background: #ffffff;
-        }
+      .gradient-text:before {
+        content: "";
+        position: absolute;
+        top: 8px;
+        bottom: 8px;
+        left: 8px;
+        right: 8px;
+        background: #ffffff;
+      }
 
-        .gradient-text_inner {
-            position: relative;
-            padding: 18px 24px;
-            font-size: 60px;
-            font-weight: bold;
-            background-image: inherit;
-            background-clip: text;
-            color: transparent;
-        }
+      .gradient-text_inner {
+        position: relative;
+        padding: 18px 24px;
+        font-size: 60px;
+        font-weight: bold;
+        background-image: inherit;
+        background-clip: text;
+        color: transparent;
+      }
     </style>
-</head>
-<body class="demo-page">
-<div class="gradient-text">
-    <p class="gradient-text_inner">GRADATION SAMPLE</p>
-</div>
-</body>
+  </head>
+  <body class="demo-page">
+    <div class="gradient-text">
+      <p class="gradient-text_inner">GRADATION SAMPLE</p>
+    </div>
+  </body>
 </html>

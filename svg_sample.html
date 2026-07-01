@@ -1,253 +1,303 @@
-<!DOCTYPE html>
-<html lang="">
-<head>
-    <meta charset="UTF-8"/>
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
     <title>SVGマスク</title>
-    <link rel="stylesheet" href="./styles/demo.css">
+    <link rel="stylesheet" href="./styles/demo.css" />
     <style>
-        .svg-samples {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+      .svg-samples {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
 
-        .svg-samples_item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+      .svg-samples_item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
 
+      .sample {
+        display: flex;
+        gap: 40px;
+        padding-top: 20px;
+        justify-content: center;
+      }
 
-        .sample {
-            display: flex;
-            gap: 40px;
-            padding-top: 20px;
-            justify-content: center;
-        }
-
-        .image-wrapper {
-            width: 400px;
-            height: 300px;
-        }
+      .image-wrapper {
+        width: 400px;
+        height: 300px;
+      }
     </style>
-</head>
-<body class="demo-page">
-<div class="svg-demo">
-<h2>クリップ用SVG</h2>
-<div class="svg-samples">
-    <!--  円　　-->
-    <div class="svg-samples_item">
-        <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="200"
-                height="200"
-                viewBox="0 0 200 200"
-        >
+  </head>
+  <body class="demo-page">
+    <div class="svg-demo">
+      <h2>クリップ用SVG</h2>
+      <div class="svg-samples">
+        <!--  円　　-->
+        <div class="svg-samples_item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="200"
+            height="200"
+            viewBox="0 0 200 200"
+          >
             <circle cx="100" cy="100" r="80" fill="#000"></circle>
-        </svg>
-        <p>&lt;circle&gt;</p>
-    </div>
-    <!--  楕円　　-->
-    <div class="svg-samples_item">
-        <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="200"
-                height="200"
-                viewBox="0 0 200 200"
-        >
+          </svg>
+          <p>&lt;circle&gt;</p>
+        </div>
+        <!--  楕円　　-->
+        <div class="svg-samples_item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="200"
+            height="200"
+            viewBox="0 0 200 200"
+          >
             <ellipse cx="100" cy="100" rx="80" ry="40" fill="#000"></ellipse>
-        </svg>
-        <p>&lt;ellipse&gt;</p>
-    </div>
+          </svg>
+          <p>&lt;ellipse&gt;</p>
+        </div>
 
-    <!--  テキスト　　-->
-    <div class="svg-samples_item">
-        <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="200"
-                height="200"
-                viewBox="0 0 200 200"
-        >
-            <text x="50%" y="50%" font-size="70" font-weight="bold" fill="#000" text-anchor="middle"
-                  dominant-baseline="central">SVG
+        <!--  テキスト　　-->
+        <div class="svg-samples_item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="200"
+            height="200"
+            viewBox="0 0 200 200"
+          >
+            <text
+              x="50%"
+              y="50%"
+              font-size="70"
+              font-weight="bold"
+              fill="#000"
+              text-anchor="middle"
+              dominant-baseline="central"
+            >
+              SVG
             </text>
-        </svg>
-        <p>&lt;text&gt;</p>
-    </div>
+          </svg>
+          <p>&lt;text&gt;</p>
+        </div>
 
-    <!--  多角形  -->
-    <div class="svg-samples_item">
-        <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="200"
-                height="200"
-                viewBox="0 0 200 200"
-        >
-            <polygon points="100,20 180,90 145,180 55,180, 20,90" fill="#000"></polygon>
-        </svg>
-        <p>&lt;polygon&gt;</p>
-    </div>
-    <!--  星　　-->
-    <div class="svg-samples_item">
-        <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="200"
-                height="200"
-                viewBox="0 0 237 225"
-        >
+        <!--  多角形  -->
+        <div class="svg-samples_item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="200"
+            height="200"
+            viewBox="0 0 200 200"
+          >
+            <polygon
+              points="100,20 180,90 145,180 55,180, 20,90"
+              fill="#000"
+            ></polygon>
+          </svg>
+          <p>&lt;polygon&gt;</p>
+        </div>
+        <!--  星　　-->
+        <div class="svg-samples_item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="200"
+            height="200"
+            viewBox="0 0 237 225"
+          >
             <path
-                    d="M109.984,13.838a10,10,0,0,1,17.033,0l30.8,50.04a10,10,0,0,0,6.175,4.481l57.165,13.767a10,10,0,0,1,5.264,16.215L188.293,143a10,10,0,0,0-2.364,7.268l4.548,58.514A10,10,0,0,1,176.7,218.8l-54.385-22.416a10,10,0,0,0-7.622,0L60.3,218.8a10,10,0,0,1-13.781-10.02l4.548-58.514A10,10,0,0,0,48.707,143L10.584,98.34a10,10,0,0,1,5.264-16.215L73.013,68.359a10,10,0,0,0,6.175-4.481Z"
+              d="M109.984,13.838a10,10,0,0,1,17.033,0l30.8,50.04a10,10,0,0,0,6.175,4.481l57.165,13.767a10,10,0,0,1,5.264,16.215L188.293,143a10,10,0,0,0-2.364,7.268l4.548,58.514A10,10,0,0,1,176.7,218.8l-54.385-22.416a10,10,0,0,0-7.622,0L60.3,218.8a10,10,0,0,1-13.781-10.02l4.548-58.514A10,10,0,0,0,48.707,143L10.584,98.34a10,10,0,0,1,5.264-16.215L73.013,68.359a10,10,0,0,0,6.175-4.481Z"
             />
-        </svg>
-        <p>&lt;path&gt;</p>
-    </div>
+          </svg>
+          <p>&lt;path&gt;</p>
+        </div>
 
-    <!--  透明度をもった星  -->
-    <div class="svg-samples_item">
-        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"
-             viewBox="0 0 237 225">
+        <!--  透明度をもった星  -->
+        <div class="svg-samples_item">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="200"
+            height="200"
+            viewBox="0 0 237 225"
+          >
             <defs>
-                <radialGradient id="a" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
-                    <stop offset="0" stop-color="#000000"/>
-                    <stop offset="1" stop-color="#ffffff"/>
-                </radialGradient>
+              <radialGradient
+                id="a"
+                cx="0.5"
+                cy="0.5"
+                r="0.5"
+                gradientUnits="objectBoundingBox"
+              >
+                <stop offset="0" stop-color="#000000" />
+                <stop offset="1" stop-color="#ffffff" />
+              </radialGradient>
             </defs>
-            <path d="M109.984,13.838a10,10,0,0,1,17.033,0l30.8,50.04a10,10,0,0,0,6.175,4.481l57.165,13.767a10,10,0,0,1,5.264,16.215L188.293,143a10,10,0,0,0-2.364,7.268l4.548,58.514A10,10,0,0,1,176.7,218.8l-54.385-22.416a10,10,0,0,0-7.622,0L60.3,218.8a10,10,0,0,1-13.781-10.02l4.548-58.514A10,10,0,0,0,48.707,143L10.584,98.34a10,10,0,0,1,5.264-16.215L73.013,68.359a10,10,0,0,0,6.175-4.481Z"
-                  fill="url(#a)"/>
-        </svg>
-        <p>&lt;path&gt;（透明度あり）</p>
-    </div>
-</div>
+            <path
+              d="M109.984,13.838a10,10,0,0,1,17.033,0l30.8,50.04a10,10,0,0,0,6.175,4.481l57.165,13.767a10,10,0,0,1,5.264,16.215L188.293,143a10,10,0,0,0-2.364,7.268l4.548,58.514A10,10,0,0,1,176.7,218.8l-54.385-22.416a10,10,0,0,0-7.622,0L60.3,218.8a10,10,0,0,1-13.781-10.02l4.548-58.514A10,10,0,0,0,48.707,143L10.584,98.34a10,10,0,0,1,5.264-16.215L73.013,68.359a10,10,0,0,0,6.175-4.481Z"
+              fill="url(#a)"
+            />
+          </svg>
+          <p>&lt;path&gt;（透明度あり）</p>
+        </div>
+      </div>
 
-<!--  クリップ用SVG  -->
-<!--  円　　-->
-<svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="0"
-        height="0"
->
-    <defs>
-        <clipPath id="circle">
+      <!--  クリップ用SVG  -->
+      <!--  円　　-->
+      <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+        <defs>
+          <clipPath id="circle">
             <circle cx="100" cy="100" r="80" fill="#000"></circle>
-        </clipPath>
-        <mask id="mask_circle">
+          </clipPath>
+          <mask id="mask_circle">
             <circle cx="100" cy="100" r="80" fill="#fff"></circle>
-        </mask>
-    </defs>
-</svg>
+          </mask>
+        </defs>
+      </svg>
 
-<!--  楕円　　-->
-<svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="0"
-        height="0"
->
-    <defs>
-        <clipPath id="ellipse">
+      <!--  楕円　　-->
+      <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+        <defs>
+          <clipPath id="ellipse">
             <ellipse cx="100" cy="100" rx="80" ry="40" fill="#000"></ellipse>
-        </clipPath>
-        <mask id="mask_ellipse">
+          </clipPath>
+          <mask id="mask_ellipse">
             <ellipse cx="100" cy="100" rx="80" ry="40" fill="#fff"></ellipse>
-        </mask>
-    </defs>
-</svg>
-<!--  テキスト  -->
-<svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="0"
-        height="0"
->
-    <defs>
-        <clipPath id="text">
-            <text x="20" y="100" font-size="70px" font-weight="bold" fill="#000" dominant-baseline="central">SVG
+          </mask>
+        </defs>
+      </svg>
+      <!--  テキスト  -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+        <defs>
+          <clipPath id="text">
+            <text
+              x="20"
+              y="100"
+              font-size="70px"
+              font-weight="bold"
+              fill="#000"
+              dominant-baseline="central"
+            >
+              SVG
             </text>
-        </clipPath>
-        <mask id="mask_text">
-            <text x="20" y="100" font-size="70px" font-weight="bold" fill="#fff" dominant-baseline="central">SVG
+          </clipPath>
+          <mask id="mask_text">
+            <text
+              x="20"
+              y="100"
+              font-size="70px"
+              font-weight="bold"
+              fill="#fff"
+              dominant-baseline="central"
+            >
+              SVG
             </text>
-        </mask>
-    </defs>
-</svg>
-<!--  多角形  -->
-<svg
+          </mask>
+        </defs>
+      </svg>
+      <!--  多角形  -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+        <defs>
+          <clipPath id="polygon">
+            <polygon
+              points="100,20 180,90 145,180 55,180, 20,90"
+              fill="#000"
+            ></polygon>
+          </clipPath>
+          <mask id="mask_polygon">
+            <polygon
+              points="100,20 180,90 145,180 55,180, 20,90"
+              fill="#fff"
+            ></polygon>
+          </mask>
+        </defs>
+      </svg>
+
+      <!--  星　　-->
+      <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+        <defs>
+          <clipPath id="star">
+            <path
+              d="M109.984,13.838a10,10,0,0,1,17.033,0l30.8,50.04a10,10,0,0,0,6.175,4.481l57.165,13.767a10,10,0,0,1,5.264,16.215L188.293,143a10,10,0,0,0-2.364,7.268l4.548,58.514A10,10,0,0,1,176.7,218.8l-54.385-22.416a10,10,0,0,0-7.622,0L60.3,218.8a10,10,0,0,1-13.781-10.02l4.548-58.514A10,10,0,0,0,48.707,143L10.584,98.34a10,10,0,0,1,5.264-16.215L73.013,68.359a10,10,0,0,0,6.175-4.481Z"
+            />
+          </clipPath>
+          <mask id="mask_star">
+            <path
+              fill="#ffffff"
+              d="M109.984,13.838a10,10,0,0,1,17.033,0l30.8,50.04a10,10,0,0,0,6.175,4.481l57.165,13.767a10,10,0,0,1,5.264,16.215L188.293,143a10,10,0,0,0-2.364,7.268l4.548,58.514A10,10,0,0,1,176.7,218.8l-54.385-22.416a10,10,0,0,0-7.622,0L60.3,218.8a10,10,0,0,1-13.781-10.02l4.548-58.514A10,10,0,0,0,48.707,143L10.584,98.34a10,10,0,0,1,5.264-16.215L73.013,68.359a10,10,0,0,0,6.175-4.481Z"
+            />
+          </mask>
+        </defs>
+      </svg>
+
+      <!--  透明度をもった星  -->
+      <svg
         xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
         width="0"
         height="0"
->
-    <defs>
-        <clipPath id="polygon">
-            <polygon points="100,20 180,90 145,180 55,180, 20,90" fill="#000"></polygon>
-        </clipPath>
-        <mask id="mask_polygon">
-            <polygon points="100,20 180,90 145,180 55,180, 20,90" fill="#fff"></polygon>
-        </mask>
-    </defs>
-</svg>
-
-<!--  星　　-->
-<svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="0"
-        height="0"
->
-    <defs>
-        <clipPath id="star">
+      >
+        <defs>
+          <radialGradient
+            id="a"
+            cx="0.5"
+            cy="0.5"
+            r="0.5"
+            gradientUnits="objectBoundingBox"
+          >
+            <stop offset="0" stop-color="#000000" />
+            <stop offset="1" stop-color="#000000" stop-opacity="0" />
+          </radialGradient>
+          <radialGradient
+            id="b"
+            cx="0.5"
+            cy="0.5"
+            r="0.5"
+            gradientUnits="objectBoundingBox"
+          >
+            <stop offset="0" stop-color="#000000" />
+            <stop offset="1" stop-color="#ffffff" />
+          </radialGradient>
+          <clipPath id="star_alpha">
             <path
-                    d="M109.984,13.838a10,10,0,0,1,17.033,0l30.8,50.04a10,10,0,0,0,6.175,4.481l57.165,13.767a10,10,0,0,1,5.264,16.215L188.293,143a10,10,0,0,0-2.364,7.268l4.548,58.514A10,10,0,0,1,176.7,218.8l-54.385-22.416a10,10,0,0,0-7.622,0L60.3,218.8a10,10,0,0,1-13.781-10.02l4.548-58.514A10,10,0,0,0,48.707,143L10.584,98.34a10,10,0,0,1,5.264-16.215L73.013,68.359a10,10,0,0,0,6.175-4.481Z"
+              d="M109.984,13.838a10,10,0,0,1,17.033,0l30.8,50.04a10,10,0,0,0,6.175,4.481l57.165,13.767a10,10,0,0,1,5.264,16.215L188.293,143a10,10,0,0,0-2.364,7.268l4.548,58.514A10,10,0,0,1,176.7,218.8l-54.385-22.416a10,10,0,0,0-7.622,0L60.3,218.8a10,10,0,0,1-13.781-10.02l4.548-58.514A10,10,0,0,0,48.707,143L10.584,98.34a10,10,0,0,1,5.264-16.215L73.013,68.359a10,10,0,0,0,6.175-4.481Z"
+              fill="url(#a)"
             />
-        </clipPath>
-        <mask id="mask_star">
+          </clipPath>
+          <mask id="mask_star_alpha">
             <path
-                    fill="#ffffff"
-                    d="M109.984,13.838a10,10,0,0,1,17.033,0l30.8,50.04a10,10,0,0,0,6.175,4.481l57.165,13.767a10,10,0,0,1,5.264,16.215L188.293,143a10,10,0,0,0-2.364,7.268l4.548,58.514A10,10,0,0,1,176.7,218.8l-54.385-22.416a10,10,0,0,0-7.622,0L60.3,218.8a10,10,0,0,1-13.781-10.02l4.548-58.514A10,10,0,0,0,48.707,143L10.584,98.34a10,10,0,0,1,5.264-16.215L73.013,68.359a10,10,0,0,0,6.175-4.481Z"
+              d="M109.984,13.838a10,10,0,0,1,17.033,0l30.8,50.04a10,10,0,0,0,6.175,4.481l57.165,13.767a10,10,0,0,1,5.264,16.215L188.293,143a10,10,0,0,0-2.364,7.268l4.548,58.514A10,10,0,0,1,176.7,218.8l-54.385-22.416a10,10,0,0,0-7.622,0L60.3,218.8a10,10,0,0,1-13.781-10.02l4.548-58.514A10,10,0,0,0,48.707,143L10.584,98.34a10,10,0,0,1,5.264-16.215L73.013,68.359a10,10,0,0,0,6.175-4.481Z"
+              fill="url(#b)"
             />
-        </mask>
-    </defs>
-</svg>
+          </mask>
+        </defs>
+      </svg>
 
-
-<!--  透明度をもった星  -->
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0">
-    <defs>
-        <radialGradient id="a" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
-            <stop offset="0" stop-color="#000000"/>
-            <stop offset="1" stop-color="#000000" stop-opacity="0"/>
-        </radialGradient>
-        <radialGradient id="b" cx="0.5" cy="0.5" r="0.5" gradientUnits="objectBoundingBox">
-            <stop offset="0" stop-color="#000000"/>
-            <stop offset="1" stop-color="#ffffff"/>
-        </radialGradient>
-        <clipPath id="star_alpha">
-            <path d="M109.984,13.838a10,10,0,0,1,17.033,0l30.8,50.04a10,10,0,0,0,6.175,4.481l57.165,13.767a10,10,0,0,1,5.264,16.215L188.293,143a10,10,0,0,0-2.364,7.268l4.548,58.514A10,10,0,0,1,176.7,218.8l-54.385-22.416a10,10,0,0,0-7.622,0L60.3,218.8a10,10,0,0,1-13.781-10.02l4.548-58.514A10,10,0,0,0,48.707,143L10.584,98.34a10,10,0,0,1,5.264-16.215L73.013,68.359a10,10,0,0,0,6.175-4.481Z"
-                  fill="url(#a)"/>
-        </clipPath>
-        <mask id="mask_star_alpha">
-            <path d="M109.984,13.838a10,10,0,0,1,17.033,0l30.8,50.04a10,10,0,0,0,6.175,4.481l57.165,13.767a10,10,0,0,1,5.264,16.215L188.293,143a10,10,0,0,0-2.364,7.268l4.548,58.514A10,10,0,0,1,176.7,218.8l-54.385-22.416a10,10,0,0,0-7.622,0L60.3,218.8a10,10,0,0,1-13.781-10.02l4.548-58.514A10,10,0,0,0,48.707,143L10.584,98.34a10,10,0,0,1,5.264-16.215L73.013,68.359a10,10,0,0,0,6.175-4.481Z"
-                  fill="url(#b)"/>
-        </mask>
-    </defs>
-</svg>
-
-
-<!--clip-pathのサンプル-->
-<hr/>
-<div class="sample">
-    <div class="image-wrapper">
-        <svg class="svg_clipPath" viewBox="0 0 400 300">
+      <!--clip-pathのサンプル-->
+      <hr />
+      <div class="sample">
+        <div class="image-wrapper">
+          <svg class="svg_clipPath" viewBox="0 0 400 300">
             <defs>
-                <linearGradient id="gradient">
-                    <stop offset="5%" stop-color="#fbc2eb"/>
-                    <stop offset="95%" stop-color="#a6c1ee"/>
-                </linearGradient>
+              <linearGradient id="gradient">
+                <stop offset="5%" stop-color="#fbc2eb" />
+                <stop offset="95%" stop-color="#a6c1ee" />
+              </linearGradient>
             </defs>
-            <rect x="0" y="0" width="100%" height="100%" fill="url('#gradient')"/>
-        </svg>
-    </div>
-    <div class="input-wrapper input-wrapper__mask">
-        <h2>clip-pathのサンプル</h2>
-        <label for="clipPath">パスのid:</label>
-        <select name="path" id="clipPath">
+            <rect
+              x="0"
+              y="0"
+              width="100%"
+              height="100%"
+              fill="url('#gradient')"
+            />
+          </svg>
+        </div>
+        <div class="input-wrapper input-wrapper__mask">
+          <h2>clip-pathのサンプル</h2>
+          <label for="clipPath">パスのid:</label>
+          <select name="path" id="clipPath">
             <option value="">なし</option>
             <option value="circle">circle</option>
             <option value="ellipse">ellipse</option>
@@ -255,27 +305,33 @@
             <option value="polygon">polygon</option>
             <option value="star">star</option>
             <option value="star_alpha">star_alpha</option>
-        </select>
-    </div>
-</div>
-<hr/>
-<!--clip-pathのサンプル-->
-<div class="sample">
-    <div class="image-wrapper">
-        <svg class="svg_mask" viewBox="0 0 400 300">
+          </select>
+        </div>
+      </div>
+      <hr />
+      <!--clip-pathのサンプル-->
+      <div class="sample">
+        <div class="image-wrapper">
+          <svg class="svg_mask" viewBox="0 0 400 300">
             <defs>
-                <linearGradient id="gradient">
-                    <stop offset="5%" stop-color="#fbc2eb"/>
-                    <stop offset="95%" stop-color="#a6c1ee"/>
-                </linearGradient>
+              <linearGradient id="gradient">
+                <stop offset="5%" stop-color="#fbc2eb" />
+                <stop offset="95%" stop-color="#a6c1ee" />
+              </linearGradient>
             </defs>
-            <rect x="0" y="0" width="100%" height="100%" fill="url('#gradient')"/>
-        </svg>
-    </div>
-    <div class="input-wrapper">
-        <h2>maskのサンプル</h2>
-        <label for="maskSelect">パスのid:</label>
-        <select name="path" id="maskSelect">
+            <rect
+              x="0"
+              y="0"
+              width="100%"
+              height="100%"
+              fill="url('#gradient')"
+            />
+          </svg>
+        </div>
+        <div class="input-wrapper">
+          <h2>maskのサンプル</h2>
+          <label for="maskSelect">パスのid:</label>
+          <select name="path" id="maskSelect">
             <option value="">なし</option>
             <option value="mask_circle">circle</option>
             <option value="mask_ellipse">ellipse</option>
@@ -283,38 +339,37 @@
             <option value="mask_polygon">polygon</option>
             <option value="mask_star">star</option>
             <option value="mask_star_alpha">star_alpha</option>
-        </select>
-        <p>※clip-pathと違い、star_alphaの透明度がマスクに反映される</p>
+          </select>
+          <p>※clip-pathと違い、star_alphaの透明度がマスクに反映される</p>
+        </div>
+      </div>
+
+      <script>
+        const setClipPath = () => {
+          clipPathSvg
+            .querySelector("rect")
+            .setAttribute("clip-path", `url(#${clipPath.value})`);
+        };
+        const setMask = () => {
+          maskSvg
+            .querySelector("rect")
+            .setAttribute("mask", `url(#${maskSelect.value})`);
+        };
+        const clipPath = document.getElementById("clipPath");
+        const clipPathSvg = document.querySelector(".svg_clipPath");
+        clipPath.addEventListener("change", () => {
+          setClipPath();
+        });
+
+        const maskSelect = document.getElementById("maskSelect");
+        const maskSvg = document.querySelector(".svg_mask");
+        maskSelect.addEventListener("change", () => {
+          setMask();
+        });
+
+        setClipPath();
+        setMask();
+      </script>
     </div>
-</div>
-
-<script>
-  const setClipPath = () => {
-    clipPathSvg
-      .querySelector("rect")
-      .setAttribute("clip-path", `url(#${clipPath.value})`);
-  };
-  const setMask = () => {
-    maskSvg
-      .querySelector("rect")
-      .setAttribute("mask", `url(#${maskSelect.value})`);
-  };
-  const clipPath = document.getElementById("clipPath");
-  const clipPathSvg = document.querySelector(".svg_clipPath");
-  clipPath.addEventListener("change", () => {
-    setClipPath();
-  });
-
-  const maskSelect = document.getElementById("maskSelect");
-  const maskSvg = document.querySelector(".svg_mask");
-  maskSelect.addEventListener("change", () => {
-    setMask();
-  });
-
-  setClipPath();
-  setMask();
-
-</script>
-</div>
-</body>
+  </body>
 </html>

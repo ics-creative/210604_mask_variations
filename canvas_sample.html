@@ -1,57 +1,57 @@
-<!DOCTYPE html>
-<html lang="">
-<head>
-    <meta charset="UTF-8"/>
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
     <title>Canvasのマスク</title>
-    <link rel="stylesheet" href="./styles/demo.css">
+    <link rel="stylesheet" href="./styles/demo.css" />
     <style>
-        #canvas {
-            width: 800px;
-            height: 600px;
-            border: 4px solid #000;
-        }
+      #canvas {
+        width: 800px;
+        height: 600px;
+        border: 4px solid #000;
+      }
     </style>
-</head>
-<body class="demo-page">
-<div class="canvas-demo">
-<h2>↓マウスをホバーしてください</h2>
-<canvas width="800" height="600" id="canvas"></canvas>
-</div>
-<script>
-  const ctx = document.getElementById("canvas").getContext("2d");
-  const img = new Image();
-  img.src = "https://picsum.photos/800/600";
+  </head>
+  <body class="demo-page">
+    <div class="canvas-demo">
+      <h2>↓マウスをホバーしてください</h2>
+      <canvas width="800" height="600" id="canvas"></canvas>
+    </div>
+    <script>
+      const ctx = document.getElementById("canvas").getContext("2d");
+      const img = new Image();
+      img.src = "https://picsum.photos/800/600";
 
-  const position = { x: 0, y: 0 };
+      const position = { x: 0, y: 0 };
 
-  const drawCircle = () => {
-    ctx.beginPath();
-    ctx.arc(position.x, position.y, 100, 0, 2 * Math.PI, false);
-    ctx.fillStyle = "#000000";
-    ctx.fill();
-  };
+      const drawCircle = () => {
+        ctx.beginPath();
+        ctx.arc(position.x, position.y, 100, 0, 2 * Math.PI, false);
+        ctx.fillStyle = "#000000";
+        ctx.fill();
+      };
 
-  const draw = () => {
-    ctx.globalCompositeOperation = "source-over";
-    ctx.drawImage(img, 0, 0);
-    ctx.globalCompositeOperation = "destination-in";
-    drawCircle();
-  };
-  const tick = () => {
-    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    draw();
-    requestAnimationFrame(tick);
-  };
+      const draw = () => {
+        ctx.globalCompositeOperation = "source-over";
+        ctx.drawImage(img, 0, 0);
+        ctx.globalCompositeOperation = "destination-in";
+        drawCircle();
+      };
+      const tick = () => {
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+        draw();
+        requestAnimationFrame(tick);
+      };
 
-  ctx.canvas.addEventListener("mousemove", (e) => {
-    const rect = e.target.getBoundingClientRect();
-    position.x = e.clientX - rect.left;
-    position.y = e.clientY - rect.top;
-  });
+      ctx.canvas.addEventListener("mousemove", (e) => {
+        const rect = e.target.getBoundingClientRect();
+        position.x = e.clientX - rect.left;
+        position.y = e.clientY - rect.top;
+      });
 
-  img.onload = function () {
-    tick();
-  };
-</script>
-</body>
+      img.onload = function () {
+        tick();
+      };
+    </script>
+  </body>
 </html>

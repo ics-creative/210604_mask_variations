@@ -1,44 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>グラデーションのアニメーション</title>
-    <link rel="stylesheet" type="text/css" href="./styles/reset.css">
-    <link rel="stylesheet" href="./styles/demo.css">
+    <link rel="stylesheet" type="text/css" href="./styles/reset.css" />
+    <link rel="stylesheet" href="./styles/demo.css" />
     <style>
-        .mask-button {
-            display: inline-block;
-            background-image: linear-gradient(to right, #333333 50%, #f0f0f0 50%);
-            background-size: 200% 100%;
-            font-size: 24px;
-            font-weight: bold;
-            background-position-x: 100%;
-            transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-        }
+      .mask-button {
+        display: inline-block;
+        background-image: linear-gradient(to right, #333333 50%, #f0f0f0 50%);
+        background-size: 200% 100%;
+        font-size: 24px;
+        font-weight: bold;
+        background-position-x: 100%;
+        transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+      }
 
-        .mask-button_inner {
-            display: inline-block;
-            padding: 12px 24px;
-            background-image: linear-gradient(to right, #f0f0f0 50%, #333333 50%);
-            background-clip: text;
-            background-size: inherit;
-            color: transparent;
-            background-position-x: 100%;
-            transition: inherit;
-        }
+      .mask-button_inner {
+        display: inline-block;
+        padding: 12px 24px;
+        background-image: linear-gradient(to right, #f0f0f0 50%, #333333 50%);
+        background-clip: text;
+        background-size: inherit;
+        color: transparent;
+        background-position-x: 100%;
+        transition: inherit;
+      }
 
-        .mask-button:hover {
-            background-position-x: 0;
-        }
+      .mask-button:hover {
+        background-position-x: 0;
+      }
 
-        .mask-button:hover .mask-button_inner {
-            background-position-x: 0;
-        }
+      .mask-button:hover .mask-button_inner {
+        background-position-x: 0;
+      }
     </style>
-</head>
-<body class="demo-page">
-<a class="mask-button" href="#">
-    <span class="mask-button_inner">HOVER</span>
-</a>
-</body>
+  </head>
+  <body class="demo-page">
+    <a class="mask-button" href="#">
+      <span class="mask-button_inner">HOVER</span>
+    </a>
+  </body>
 </html>

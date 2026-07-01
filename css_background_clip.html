@@ -1,69 +1,75 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8"/>
+  <head>
+    <meta charset="UTF-8" />
     <title>background-clip: textのサンプル</title>
-    <link rel="stylesheet" href="./styles/demo.css">
+    <link rel="stylesheet" href="./styles/demo.css" />
     <style>
-        .sample {
-            display: flex;
-            gap: 40px;
-            flex-wrap: wrap;
-            align-items: flex-start;
-        }
+      .sample {
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+        align-items: flex-start;
+      }
 
-        .image-wrapper {
-            width: 400px;
-            height: 300px;
-            background-color: #333;
-            background-image: url(https://picsum.photos/id/200/400/300);
-            background-clip: text;
-            text-align: center;
-        }
+      .image-wrapper {
+        width: 400px;
+        height: 300px;
+        background-color: #333;
+        background-image: url(https://picsum.photos/id/200/400/300);
+        background-clip: text;
+        text-align: center;
+      }
 
-        .image-wrapper span {
-            font-size: 120px;
-            font-weight: bold;
-            color: transparent;
-            line-height: 300px;
-        }
+      .image-wrapper span {
+        font-size: 120px;
+        font-weight: bold;
+        color: transparent;
+        line-height: 300px;
+      }
     </style>
-</head>
-<body class="demo-page">
-<div class="sample">
-    <div class="image-wrapper">
+  </head>
+  <body class="demo-page">
+    <div class="sample">
+      <div class="image-wrapper">
         <span>CLIP</span>
-    </div>
-    <div class="input-wrapper">
+      </div>
+      <div class="input-wrapper">
         <h2>background-clip: textのサンプル</h2>
         <p>
-            <label class="bgClipLabelX" for="bgClipTextX">background-position-x: </label><br/>
-            <input id="bgClipTextX" type="range" min="0" max="200" value="100"/>
+          <label class="bgClipLabelX" for="bgClipTextX"
+            >background-position-x: </label
+          ><br />
+          <input id="bgClipTextX" type="range" min="0" max="200" value="100" />
         </p>
         <p>
-            <label class="bgClipLabelY" for="bgClipTextY">background-position-y: </label><br/>
-            <input id="bgClipTextY" type="range" min="0" max="200" value="100"/>
+          <label class="bgClipLabelY" for="bgClipTextY"
+            >background-position-y: </label
+          ><br />
+          <input id="bgClipTextY" type="range" min="0" max="200" value="100" />
         </p>
+      </div>
     </div>
-</div>
 
-<script>
-  const textClipSliderX = document.getElementById("bgClipTextX");
-  const textClipSliderY = document.getElementById("bgClipTextY");
-  const textX = document.querySelector(".bgClipLabelX");
-  const textY = document.querySelector(".bgClipLabelY");
-  const textClipImage = document.querySelector(".image-wrapper");
+    <script>
+      const textClipSliderX = document.getElementById("bgClipTextX");
+      const textClipSliderY = document.getElementById("bgClipTextY");
+      const textX = document.querySelector(".bgClipLabelX");
+      const textY = document.querySelector(".bgClipLabelY");
+      const textClipImage = document.querySelector(".image-wrapper");
 
-  const setTextClip = () => {
-    textClipImage.style.backgroundPositionX = textClipSliderX.value + "px";
-    textX.innerText = "background-position-x: " + textClipSliderX.value + "px";
-    textClipImage.style.backgroundPositionY = textClipSliderY.value + "px";
-    textY.innerText = "background-position-y: " + textClipSliderY.value + "px";
-  };
+      const setTextClip = () => {
+        textClipImage.style.backgroundPositionX = textClipSliderX.value + "px";
+        textX.innerText =
+          "background-position-x: " + textClipSliderX.value + "px";
+        textClipImage.style.backgroundPositionY = textClipSliderY.value + "px";
+        textY.innerText =
+          "background-position-y: " + textClipSliderY.value + "px";
+      };
 
-  textClipSliderX.addEventListener("input", setTextClip);
-  textClipSliderY.addEventListener("input", setTextClip);
-  setTextClip();
-</script>
-</body>
+      textClipSliderX.addEventListener("input", setTextClip);
+      textClipSliderY.addEventListener("input", setTextClip);
+      setTextClip();
+    </script>
+  </body>
 </html>
