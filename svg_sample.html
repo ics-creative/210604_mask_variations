@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8"/>
     <title>SVGマスク</title>
+    <link rel="stylesheet" href="./styles/demo.css">
     <style>
-        body {
-            font-family: sans-serif;
-        }
         .svg-samples {
             display: flex;
             gap: 20px;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         .svg-samples_item {
@@ -24,6 +23,7 @@
             display: flex;
             gap: 40px;
             padding-top: 20px;
+            justify-content: center;
         }
 
         .image-wrapper {
@@ -32,9 +32,8 @@
         }
     </style>
 </head>
-<body>
-
-<!--  クリップ用SVGの元画像  -->
+<body class="demo-page">
+<div class="svg-demo">
 <h2>クリップ用SVG</h2>
 <div class="svg-samples">
     <!--  円　　-->
@@ -316,5 +315,6 @@
   setMask();
 
 </script>
+</div>
 </body>
 </html>

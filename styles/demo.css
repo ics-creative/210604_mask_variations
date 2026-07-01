@@ -1,0 +1,41 @@
+body.demo-page {
+  margin: 0;
+  padding: 24px;
+  font-family: sans-serif;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body.demo-page--full {
+  padding: 0;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.demo-page > .sample,
+.demo-page > .gradient-text,
+.demo-page > .mask-button,
+.demo-page > .mask-transition,
+.demo-page > .sprite-animation,
+.demo-page > .canvas-demo,
+.demo-page > .svg-demo {
+  width: 100%;
+  max-width: 960px;
+}
+
+.demo-page > .sample {
+  justify-content: center;
+}
+
+.demo-page > .canvas-demo {
+  text-align: center;
+}
+
+.demo-page > .sprite-animation {
+  display: flex;
+  justify-content: center;
+}

@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Canvasのマスク</title>
+    <link rel="stylesheet" href="./styles/demo.css">
     <style>
-        body {
-            font-family: sans-serif;
-        }
         #canvas {
             width: 800px;
             height: 600px;
@@ -14,9 +12,11 @@
         }
     </style>
 </head>
-<body>
+<body class="demo-page">
+<div class="canvas-demo">
 <h2>↓マウスをホバーしてください</h2>
 <canvas width="800" height="600" id="canvas"></canvas>
+</div>
 <script>
   const ctx = document.getElementById("canvas").getContext("2d");
   const img = new Image();
