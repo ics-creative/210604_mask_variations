@@ -16,6 +16,7 @@ body.demo-page--full {
   align-items: stretch;
 }
 
+.demo-page > .demo-list,
 .demo-page > .sample,
 .demo-page > .gradient-text,
 .demo-page > .mask-button,

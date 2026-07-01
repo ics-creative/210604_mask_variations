@@ -6,6 +6,13 @@
     <link rel="stylesheet" type="text/css" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/demo.css" />
     <style>
+      .demo-list {
+        display: flex;
+        gap: 40px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
       .mask-transition {
         position: relative;
         cursor: pointer;
@@ -34,21 +41,39 @@
     </style>
   </head>
   <body class="demo-page">
-    <div class="mask-transition">
-      <img
-        class="mask-transition_bg"
-        src="https://picsum.photos/id/1016/400/250"
-        alt="マスク用サンプル画像白黒"
-        width="400"
-        height="250"
-      />
-      <img
-        class="mask-transition_image"
-        src="https://picsum.photos/id/1016/400/250"
-        alt="マスク用サンプル画像"
-        width="400"
-        height="250"
-      />
+    <div class="demo-list">
+      <div class="mask-transition">
+        <img
+          class="mask-transition_bg"
+          src="https://picsum.photos/id/1016/400/250"
+          alt="マスク用サンプル画像白黒"
+          width="400"
+          height="250"
+        />
+        <img
+          class="mask-transition_image"
+          src="https://picsum.photos/id/1016/400/250"
+          alt="マスク用サンプル画像"
+          width="400"
+          height="250"
+        />
+      </div>
+      <div class="mask-transition">
+        <img
+          class="mask-transition_bg"
+          src="https://picsum.photos/id/1080/400/250"
+          alt="マスク用サンプル画像白黒"
+          width="400"
+          height="250"
+        />
+        <img
+          class="mask-transition_image"
+          src="https://picsum.photos/id/1080/400/250"
+          alt="マスク用サンプル画像"
+          width="400"
+          height="250"
+        />
+      </div>
     </div>
   </body>
 </html>
