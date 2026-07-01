@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"/>
+    <title>clip-pathのサンプル</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 24px;
+            font-family: sans-serif;
+        }
+
+        .sample {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+
+        .image-wrapper {
+            width: 400px;
+            height: 300px;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: clip-path 0.5s;
+            clip-path: inset(50px round 20px);
+        }
+
+        .input-wrapper_text input[type="text"] {
+            padding: 8px;
+            font-size: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+<div class="sample">
+    <div class="image-wrapper">
+        <img src="https://picsum.photos/id/200/400/300" alt="クリップパス用サンプル画像">
+    </div>
+    <div class="input-wrapper">
+        <h2>clip-pathのサンプル</h2>
+        <p>
+            <label for="clipPath">パスの形状:</label>
+            <select name="path" id="clipPath">
+                <option value="inset">inset</option>
+                <option value="circle">circle</option>
+                <option value="ellipse">ellipse</option>
+                <option value="polygon">polygon</option>
+                <option value="path">path</option>
+                <option value="svg">画像</option>
+            </select>
+        </p>
+        <p class="input-wrapper_text">
+            <label for="clipText">clip-path: </label>
+            <input id="clipText" type="text">
+        </p>
+        <p>※パラメーターを直接変更できます</p>
+    </div>
+</div>
+
+<svg xmlns="http://www.w3.org/2000/svg" width="0" height="0">
+    <defs>
+        <clipPath id="star">
+            <path d="M109.984,13.838a10,10,0,0,1,17.033,0l30.8,50.04a10,10,0,0,0,6.175,4.481l57.165,13.767a10,10,0,0,1,5.264,16.215L188.293,143a10,10,0,0,0-2.364,7.268l4.548,58.514A10,10,0,0,1,176.7,218.8l-54.385-22.416a10,10,0,0,0-7.622,0L60.3,218.8a10,10,0,0,1-13.781-10.02l4.548-58.514A10,10,0,0,0,48.707,143L10.584,98.34a10,10,0,0,1,5.264-16.215L73.013,68.359a10,10,0,0,0,6.175-4.481Z"/>
+        </clipPath>
+    </defs>
+</svg>
+
+<script>
+  const clipSelector = document.getElementById("clipPath");
+  const clipImage = document.querySelector(".image-wrapper img");
+  const clipText = document.getElementById("clipText");
+
+  const setClipPath = (value) => {
+    clipImage.style.clipPath = value;
+    clipText.value = value;
+  };
+
+  const selectClipPath = () => {
+    switch (clipSelector.value) {
+      case "inset":
+        setClipPath("inset(50px round 20px)");
+        break;
+      case "circle":
+        setClipPath("circle(100px at center)");
+        break;
+      case "ellipse":
+        setClipPath("ellipse(50% 20% at center)");
+        break;
+      case "polygon":
+        setClipPath("polygon(5% 10%, 94% 10%, 48% 100%)");
+        break;
+      case "path":
+        setClipPath('path("M120,32.48 c-31.48,-54.02 -120,-38.25 -120,29.44 0,46.61 55.71,94.27 120,158.08 64.3,-63.81 120,-111.47 120,-158.08 0,-67.92 -88.75, -83.06 -120,-29.44z")');
+        break;
+      case "svg":
+        setClipPath("url(#star)");
+        break;
+    }
+  };
+
+  clipSelector.addEventListener("change", selectClipPath);
+  clipText.addEventListener("input", () => {
+    setClipPath(clipText.value);
+  });
+
+  selectClipPath();
+</script>
+</body>
+</html>

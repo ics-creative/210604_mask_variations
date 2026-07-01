@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>背景に依存しないマスク</title>
+    <link rel="stylesheet" type="text/css" href="./styles/reset.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        .parallax-cover {
+            position: relative;
+        }
+
+        .parallax-cover::after {
+            content: "";
+            display: block;
+            width: 100%;
+            height: 200px;
+        }
+
+        .parallax-cover_image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+        }
+
+        .parallax-cover_clip {
+            position: sticky;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: calc(100% + 200px);
+        }
+    </style>
+</head>
+<body>
+<div class="parallax-cover">
+    <img class="parallax-cover_image" src="https://picsum.photos/id/238/1920/1080" alt="切り抜き用サンプル画像" width="1920" height="1080">
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1920"
+        height="1080"
+        class="parallax-cover_clip"
+    >
+        <defs>
+            <mask id="cross">
+                <rect width="100%" height="200%" fill="#ffffff"></rect>
+                <rect x="0" y="5%" width="50%" height="20%" fill="#000000"></rect>
+                <rect x="5%" y="45%" width="10%" height="10%" fill="#000000"></rect>
+                <circle cx="80%" cy="45%" r="10%" fill="#000000"></circle>
+                <circle cx="60%" cy="40%" r="5%" fill="#000000"></circle>
+                <rect x="10%" y="65%" width="60%" height="20%" fill="#000000"></rect>
+            </mask>
+        </defs>
+        <rect width="100%" height="200%" mask="url(#cross)" fill="#ffffff"></rect>
+    </svg>
+</div>
+</body>
+</html>

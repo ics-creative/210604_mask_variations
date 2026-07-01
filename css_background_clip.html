@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8"/>
+    <title>background-clip: textのサンプル</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 24px;
+            font-family: sans-serif;
+        }
+
+        .sample {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+
+        .image-wrapper {
+            width: 400px;
+            height: 300px;
+            background-color: #333;
+            background-image: url(https://picsum.photos/id/200/400/300);
+            background-clip: text;
+            text-align: center;
+        }
+
+        .image-wrapper span {
+            font-size: 120px;
+            font-weight: bold;
+            color: transparent;
+            line-height: 300px;
+        }
+    </style>
+</head>
+<body>
+<div class="sample">
+    <div class="image-wrapper">
+        <span>CLIP</span>
+    </div>
+    <div class="input-wrapper">
+        <h2>background-clip: textのサンプル</h2>
+        <p>
+            <label class="bgClipLabelX" for="bgClipTextX">background-position-x: </label><br/>
+            <input id="bgClipTextX" type="range" min="0" max="200" value="100"/>
+        </p>
+        <p>
+            <label class="bgClipLabelY" for="bgClipTextY">background-position-y: </label><br/>
+            <input id="bgClipTextY" type="range" min="0" max="200" value="100"/>
+        </p>
+    </div>
+</div>
+
+<script>
+  const textClipSliderX = document.getElementById("bgClipTextX");
+  const textClipSliderY = document.getElementById("bgClipTextY");
+  const textX = document.querySelector(".bgClipLabelX");
+  const textY = document.querySelector(".bgClipLabelY");
+  const textClipImage = document.querySelector(".image-wrapper");
+
+  const setTextClip = () => {
+    textClipImage.style.backgroundPositionX = textClipSliderX.value + "px";
+    textX.innerText = "background-position-x: " + textClipSliderX.value + "px";
+    textClipImage.style.backgroundPositionY = textClipSliderY.value + "px";
+    textY.innerText = "background-position-y: " + textClipSliderY.value + "px";
+  };
+
+  textClipSliderX.addEventListener("input", setTextClip);
+  textClipSliderY.addEventListener("input", setTextClip);
+  setTextClip();
+</script>
+</body>
+</html>
