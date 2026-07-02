@@ -103,19 +103,14 @@
       .mask-transition_image {
         position: relative;
         mask-image: radial-gradient(black 50%, transparent 100%);
-        mask-size: 0;
+        mask-size: 0 0;
         mask-position: center;
         mask-repeat: no-repeat;
-        -webkit-mask-image: radial-gradient(black 50%, transparent 100%);
-        -webkit-mask-size: 0 0;
-        -webkit-mask-position: center;
-        -webkit-mask-repeat: no-repeat;
-        transition: 1s cubic-bezier(0.25, 1, 0.5, 1);
+        transition: mask-size 1s cubic-bezier(0.25, 1, 0.5, 1);
       }
 
       .mask-transition:hover .mask-transition_image {
         mask-size: 100% 100%;
-        -webkit-mask-size: 100% 100%;
       }
 
       /*スプライトイメージのアニメーション*/
