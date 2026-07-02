@@ -14,6 +14,7 @@ body.demo-page--full {
   padding: 0;
   justify-content: flex-start;
   align-items: stretch;
+  background: #fff;
 }
 
 .demo-page > .demo-list,
@@ -34,6 +35,29 @@ body.demo-page--full {
 
 .demo-page > .canvas-demo {
   text-align: center;
+}
+
+.demo-page > .canvas-demo.canvas-demo--full {
+  position: relative;
+  max-width: none;
+  height: 100vh;
+  text-align: inherit;
+}
+
+.canvas-demo--full canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.canvas-demo__hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  pointer-events: none;
+  user-select: none;
 }
 
 .demo-page > .sprite-animation {
