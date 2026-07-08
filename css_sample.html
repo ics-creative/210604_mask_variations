@@ -23,10 +23,6 @@
           mask-repeat: no-repeat;
           mask-position: 0 0;
           mask-size: 50%;
-          -webkit-mask-image: url("./images/star.svg");
-          -webkit-mask-repeat: no-repeat;
-          -webkit-mask-position: 0 0;
-          -webkit-mask-size: 50%;
         }
       }
 
@@ -42,7 +38,6 @@
           background-color: #333;
           background-image: url(https://picsum.photos/id/200/400/300);
           background-clip: text;
-          -webkit-background-clip: text;
           text-align: center;
 
           span {
@@ -164,18 +159,15 @@
       const setMaskPosition = () => {
         const prop = `${xValue}% ${yValue}%`;
         image.style.maskPosition = prop;
-        image.style.webkitMaskPosition = prop;
         maskPositionText.innerText = "mask-position: " + prop;
       };
       const setMaskSize = () => {
         const prop = `${scaleValue}%`;
         image.style.maskSize = prop;
-        image.style.webkitMaskSize = prop;
         maskSizeText.innerText = "mask-size: " + prop;
       };
       const setRepeat = () => {
         image.style.maskRepeat = repeat ? "repeat" : "no-repeat";
-        image.style.webkitMaskRepeat = repeat ? "repeat" : "no-repeat";
       };
       xSlider.addEventListener("input", () => {
         xValue = xSlider.value;

@@ -52,7 +52,6 @@
           font-weight: bold;
           background-image: inherit;
           background-clip: text;
-          -webkit-background-clip: text;
           color: transparent;
         }
       }
@@ -75,7 +74,6 @@
             #333333 50%
           );
           background-clip: text;
-          -webkit-background-clip: text;
           background-size: inherit;
           color: transparent;
           background-position-x: 100%;
@@ -129,9 +127,6 @@
           mask-repeat: no-repeat;
           mask-position: 0 0;
           mask-size: cover;
-          -webkit-mask-image: url("./images/css_sprites.png");
-          -webkit-mask-repeat: no-repeat;
-          -webkit-mask-position: 0 0;
 
           animation: sprite-animation 2.5s steps(29) infinite;
         }
@@ -140,11 +135,9 @@
       @keyframes sprite-animation {
         0% {
           mask-position: 0 0;
-          -webkit-mask-position: 0 0;
         }
         100% {
           mask-position: calc(-14400px + 480px) 0;
-          -webkit-mask-position: calc(-14400px + 480px) 0;
         }
       }
 
