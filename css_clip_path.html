@@ -15,21 +15,23 @@
       .image-wrapper {
         width: 400px;
         height: 300px;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: clip-path 0.5s;
+          clip-path: inset(50px round 20px);
+        }
       }
 
-      .image-wrapper img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: clip-path 0.5s;
-        clip-path: inset(50px round 20px);
-      }
-
-      .input-wrapper_text input[type="text"] {
-        padding: 8px;
-        font-size: 20px;
-        width: 100%;
-        max-width: 400px;
+      .input-wrapper_text {
+        input[type="text"] {
+          padding: 8px;
+          font-size: 20px;
+          width: 100%;
+          max-width: 400px;
+        }
       }
     </style>
   </head>

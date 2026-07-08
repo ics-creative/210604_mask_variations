@@ -17,39 +17,47 @@
         height: 300px;
       }
 
-      .sample__mask .image-wrapper img {
-        mask-image: url("./images/star.svg");
-        mask-repeat: no-repeat;
-        mask-position: 0 0;
-        mask-size: 50%;
-        -webkit-mask-image: url("./images/star.svg");
-        -webkit-mask-repeat: no-repeat;
-        -webkit-mask-position: 0 0;
-        -webkit-mask-size: 50%;
+      .sample__mask {
+        .image-wrapper img {
+          mask-image: url("./images/star.svg");
+          mask-repeat: no-repeat;
+          mask-position: 0 0;
+          mask-size: 50%;
+          -webkit-mask-image: url("./images/star.svg");
+          -webkit-mask-repeat: no-repeat;
+          -webkit-mask-position: 0 0;
+          -webkit-mask-size: 50%;
+        }
       }
 
-      .sample__clip .image-wrapper img {
-        transition: clip-path 0.5s;
-        clip-path: inset(50px round 20px);
+      .sample__clip {
+        .image-wrapper img {
+          transition: clip-path 0.5s;
+          clip-path: inset(50px round 20px);
+        }
       }
 
-      .sample__text .image-wrapper {
-        background-color: #333;
-        background-image: url(https://picsum.photos/id/200/400/300);
-        background-clip: text;
-        -webkit-background-clip: text;
-        text-align: center;
+      .sample__text {
+        .image-wrapper {
+          background-color: #333;
+          background-image: url(https://picsum.photos/id/200/400/300);
+          background-clip: text;
+          -webkit-background-clip: text;
+          text-align: center;
+
+          span {
+            font-size: 120px;
+            font-weight: bold;
+            color: transparent;
+          }
+        }
       }
 
-      .sample__text .image-wrapper span {
-        font-size: 120px;
-        font-weight: bold;
-        color: transparent;
-      }
-
-      .input-wrapper_text input[type="text"] {
-        padding: 8px 8px;
-        font-size: 20px;
+      .input-wrapper_text {
+        input[type="text"] {
+          padding: 8px 8px;
+          font-size: 20px;
+        }
       }
     </style>
   </head>

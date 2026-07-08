@@ -6,15 +6,17 @@
     <link rel="stylesheet" type="text/css" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/demo.css" />
     <style>
-      .sprite-animation_image {
-        display: inline-block;
-        width: 480px;
-        height: 270px;
-        mask-image: url("./images/css_sprites.png");
-        mask-repeat: no-repeat;
-        mask-position: 0 0;
-        mask-size: cover;
-        animation: sprite-animation 2.5s steps(29) infinite;
+      .sprite-animation {
+        .sprite-animation_image {
+          display: inline-block;
+          width: 480px;
+          height: 270px;
+          mask-image: url("./images/css_sprites.png");
+          mask-repeat: no-repeat;
+          mask-position: 0 0;
+          mask-size: cover;
+          animation: sprite-animation 2.5s steps(29) infinite;
+        }
       }
 
       @keyframes sprite-animation {

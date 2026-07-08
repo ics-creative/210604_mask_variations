@@ -13,26 +13,30 @@
         font-weight: bold;
         background-position-x: 100%;
         transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-      }
 
-      .mask-button_inner {
-        display: inline-block;
-        padding: 12px 24px;
-        background-image: linear-gradient(to right, #f0f0f0 50%, #333333 50%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        background-size: inherit;
-        color: transparent;
-        background-position-x: 100%;
-        transition: inherit;
-      }
+        .mask-button_inner {
+          display: inline-block;
+          padding: 12px 24px;
+          background-image: linear-gradient(
+            to right,
+            #f0f0f0 50%,
+            #333333 50%
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          background-size: inherit;
+          color: transparent;
+          background-position-x: 100%;
+          transition: inherit;
+        }
 
-      .mask-button:hover {
-        background-position-x: 0;
-      }
+        &:hover {
+          background-position-x: 0;
 
-      .mask-button:hover .mask-button_inner {
-        background-position-x: 0;
+          .mask-button_inner {
+            background-position-x: 0;
+          }
+        }
       }
     </style>
   </head>

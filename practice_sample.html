@@ -34,27 +34,27 @@
         display: inline-block;
         background-image: linear-gradient(to right, #d83819, #e2cc28, #57db51);
         position: relative;
-      }
 
-      .gradient-text:before {
-        content: "";
-        position: absolute;
-        top: 8px;
-        bottom: 8px;
-        left: 8px;
-        right: 8px;
-        background: #ffffff;
-      }
+        &::before {
+          content: "";
+          position: absolute;
+          top: 8px;
+          bottom: 8px;
+          left: 8px;
+          right: 8px;
+          background: #ffffff;
+        }
 
-      .gradient-text_inner {
-        position: relative;
-        padding: 18px 24px;
-        font-size: 60px;
-        font-weight: bold;
-        background-image: inherit;
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
+        .gradient-text_inner {
+          position: relative;
+          padding: 18px 24px;
+          font-size: 60px;
+          font-weight: bold;
+          background-image: inherit;
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: transparent;
+        }
       }
 
       /*テキストのマスクアニメーション*/
@@ -65,68 +65,76 @@
         font-weight: bold;
         background-position-x: 100%;
         transition: 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-      }
 
-      .mask-button_inner {
-        display: inline-block;
-        padding: 12px 24px;
-        background-image: linear-gradient(to right, #f0f0f0 50%, #333333 50%);
-        background-clip: text;
-        -webkit-background-clip: text;
-        background-size: inherit;
-        color: transparent;
-        background-position-x: 100%;
-        transition: inherit;
-      }
+        .mask-button_inner {
+          display: inline-block;
+          padding: 12px 24px;
+          background-image: linear-gradient(
+            to right,
+            #f0f0f0 50%,
+            #333333 50%
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+          background-size: inherit;
+          color: transparent;
+          background-position-x: 100%;
+          transition: inherit;
+        }
 
-      .mask-button:hover {
-        background-position-x: 0;
-      }
+        &:hover {
+          background-position-x: 0;
 
-      .mask-button:hover .mask-button_inner {
-        background-position-x: 0;
+          .mask-button_inner {
+            background-position-x: 0;
+          }
+        }
       }
 
       /*グラデーションマスクのアニメーション*/
       .mask-transition {
         position: relative;
         cursor: pointer;
-      }
 
-      .mask-transition_bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        filter: grayscale(100%);
-      }
+        .mask-transition_bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          filter: grayscale(100%);
+        }
 
-      .mask-transition_image {
-        position: relative;
-        mask-image: radial-gradient(black 50%, transparent 100%);
-        mask-size: 0 0;
-        mask-position: center;
-        mask-repeat: no-repeat;
-        transition: mask-size 1s cubic-bezier(0.25, 1, 0.5, 1);
-      }
+        .mask-transition_image {
+          position: relative;
+          mask-image: radial-gradient(black 50%, transparent 100%);
+          mask-size: 0 0;
+          mask-position: center;
+          mask-repeat: no-repeat;
+          transition: mask-size 1s cubic-bezier(0.25, 1, 0.5, 1);
+        }
 
-      .mask-transition:hover .mask-transition_image {
-        mask-size: 100% 100%;
+        &:hover {
+          .mask-transition_image {
+            mask-size: 100% 100%;
+          }
+        }
       }
 
       /*スプライトイメージのアニメーション*/
-      .sprite-animation_image {
-        display: inline-block;
-        width: 480px;
-        height: 270px;
-        mask-image: url("./images/css_sprites.png");
-        mask-repeat: no-repeat;
-        mask-position: 0 0;
-        mask-size: cover;
-        -webkit-mask-image: url("./images/css_sprites.png");
-        -webkit-mask-repeat: no-repeat;
-        -webkit-mask-position: 0 0;
+      .sprite-animation {
+        .sprite-animation_image {
+          display: inline-block;
+          width: 480px;
+          height: 270px;
+          mask-image: url("./images/css_sprites.png");
+          mask-repeat: no-repeat;
+          mask-position: 0 0;
+          mask-size: cover;
+          -webkit-mask-image: url("./images/css_sprites.png");
+          -webkit-mask-repeat: no-repeat;
+          -webkit-mask-position: 0 0;
 
-        animation: sprite-animation 2.5s steps(29) infinite;
+          animation: sprite-animation 2.5s steps(29) infinite;
+        }
       }
 
       @keyframes sprite-animation {
@@ -143,28 +151,29 @@
       /*背景に依存しない画像の切り抜き*/
       .parallax-cover {
         position: relative;
-      }
-      .parallax-cover::after {
-        content: "";
-        display: block;
-        width: 100%;
-        height: 200px;
-      }
 
-      .parallax-cover_image {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: auto;
-      }
+        &::after {
+          content: "";
+          display: block;
+          width: 100%;
+          height: 200px;
+        }
 
-      .parallax-cover_clip {
-        position: sticky;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: calc(100% + 200px);
+        .parallax-cover_image {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: auto;
+        }
+
+        .parallax-cover_clip {
+          position: sticky;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: calc(100% + 200px);
+        }
       }
     </style>
   </head>

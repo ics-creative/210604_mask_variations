@@ -16,26 +16,28 @@
       .mask-transition {
         position: relative;
         cursor: pointer;
-      }
 
-      .mask-transition_bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        filter: grayscale(100%);
-      }
+        .mask-transition_bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          filter: grayscale(100%);
+        }
 
-      .mask-transition_image {
-        position: relative;
-        mask-image: radial-gradient(black 50%, transparent 100%);
-        mask-size: 0 0;
-        mask-position: center;
-        mask-repeat: no-repeat;
-        transition: mask-size 1s cubic-bezier(0.25, 1, 0.5, 1);
-      }
+        .mask-transition_image {
+          position: relative;
+          mask-image: radial-gradient(black 50%, transparent 100%);
+          mask-size: 0 0;
+          mask-position: center;
+          mask-repeat: no-repeat;
+          transition: mask-size 1s cubic-bezier(0.25, 1, 0.5, 1);
+        }
 
-      .mask-transition:hover .mask-transition_image {
-        mask-size: 100% 100%;
+        &:hover {
+          .mask-transition_image {
+            mask-size: 100% 100%;
+          }
+        }
       }
     </style>
   </head>

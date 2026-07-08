@@ -10,26 +10,26 @@
         display: inline-block;
         background-image: linear-gradient(to right, #d83819, #e2cc28, #57db51);
         position: relative;
-      }
 
-      .gradient-text:before {
-        content: "";
-        position: absolute;
-        top: 8px;
-        bottom: 8px;
-        left: 8px;
-        right: 8px;
-        background: #ffffff;
-      }
+        &::before {
+          content: "";
+          position: absolute;
+          top: 8px;
+          bottom: 8px;
+          left: 8px;
+          right: 8px;
+          background: #ffffff;
+        }
 
-      .gradient-text_inner {
-        position: relative;
-        padding: 18px 24px;
-        font-size: 60px;
-        font-weight: bold;
-        background-image: inherit;
-        background-clip: text;
-        color: transparent;
+        .gradient-text_inner {
+          position: relative;
+          padding: 18px 24px;
+          font-size: 60px;
+          font-weight: bold;
+          background-image: inherit;
+          background-clip: text;
+          color: transparent;
+        }
       }
     </style>
   </head>
