@@ -355,13 +355,13 @@
             .querySelector("rect")
             .setAttribute("mask", `url(#${maskSelect.value})`);
         };
-        const clipPath = document.getElementById("clipPath");
+        const clipPath = document.querySelector("#clipPath");
         const clipPathSvg = document.querySelector(".svg_clipPath");
         clipPath.addEventListener("change", () => {
           setClipPath();
         });
 
-        const maskSelect = document.getElementById("maskSelect");
+        const maskSelect = document.querySelector("#maskSelect");
         const maskSvg = document.querySelector(".svg_mask");
         maskSelect.addEventListener("change", () => {
           setMask();

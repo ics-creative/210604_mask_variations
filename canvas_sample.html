@@ -10,8 +10,8 @@
       <canvas id="canvas"></canvas>
       <h2 class="canvas-demo__hint">マウスをホバーしてください</h2>
     </div>
-    <script>
-      const canvas = document.getElementById("canvas");
+    <script type="module">
+      const canvas = document.querySelector("#canvas");
       const ctx = canvas.getContext("2d");
       const img = new Image();
       img.src = "https://picsum.photos/800/600";
@@ -23,7 +23,7 @@
       const maskRadius = 100;
 
       const resizeCanvas = () => {
-        const dpr = window.devicePixelRatio || 1;
+        const dpr = window.devicePixelRatio;
         const width = window.innerWidth;
         const height = window.innerHeight;
 
@@ -70,10 +70,9 @@
 
       window.addEventListener("resize", resizeCanvas);
 
-      img.onload = () => {
-        resizeCanvas();
-        tick();
-      };
+      await img.decode();
+      resizeCanvas();
+      tick();
     </script>
   </body>
 </html>

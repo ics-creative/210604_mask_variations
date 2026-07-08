@@ -75,9 +75,9 @@
     </svg>
 
     <script>
-      const clipSelector = document.getElementById("clipPath");
+      const clipSelector = document.querySelector("#clipPath");
       const clipImage = document.querySelector(".image-wrapper img");
-      const clipText = document.getElementById("clipText");
+      const clipText = document.querySelector("#clipText");
 
       const setClipPath = (value) => {
         clipImage.style.clipPath = value;
